@@ -28,9 +28,10 @@ export default function AboutPage() {
 
       {/* BIOGRAPHY */}
       <section className="bg-white py-20 px-6 lg:px-8" aria-label="Biography">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-start">
-            {/* Photo Container */}
+        <div className="max-w-5xl mx-auto flex flex-col gap-16">
+          
+          {/* Block 1: Image Left, Legacy Text Right */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
             <div className="md:col-span-2">
               <div
                 className="relative w-full border-2 border-[#C9963A] rounded-sm overflow-hidden bg-[#F4F6F9]"
@@ -47,50 +48,66 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Bio text */}
-            <div className="md:col-span-3 flex flex-col gap-6">
-              <div>
-                <h2 className="font-serif font-bold text-[#0A1628] text-2xl mb-4">
-                  Driven by a Legacy of Education
-                </h2>
-                <p className="font-sans text-base text-[#1A202C] leading-relaxed mb-4">
-                  True instructional leadership isn&rsquo;t born in a vacuum; it is forged through years of real-world classroom experience and a deep respect for the teaching profession. As the daughter of dedicated lifelong educators, my path was set early. I witnessed firsthand the profound impact that a supported, highly skilled teacher can have on a student&rsquo;s life.
-                </p>
-                <p className="font-sans text-base text-[#1A202C] leading-relaxed">
-                  Today, with over 20 years of cross-curricular experience spanning elementary, secondary, and collegiate levels, I carry that legacy forward. I know the unique pressures secondary teachers face—balancing heavy content pacing, evolving state standards, and diverse classroom reading dynamics. My mission through In Context Learning Solutions is to ensure that educators never have to navigate these challenges alone.
-                </p>
-              </div>
+            <div className="md:col-span-3">
+              <h2 className="font-serif font-bold text-[#0A1628] text-2xl mb-4">
+                Driven by a Legacy of Education
+              </h2>
+              <p className="font-sans text-base text-[#1A202C] leading-relaxed mb-4">
+                True instructional leadership isn&rsquo;t born in a vacuum; it is forged through years of real-world classroom experience and a deep respect for the teaching profession. As the daughter of dedicated lifelong educators, my path was set early. I witnessed firsthand the profound impact that a supported, highly skilled teacher can have on a student&rsquo;s life.
+              </p>
+              <p className="font-sans text-base text-[#1A202C] leading-relaxed">
+                Today, with over 20 years of cross-curricular experience spanning elementary, secondary, and collegiate levels, I carry that legacy forward. I know the unique pressures secondary teachers face—balancing heavy content pacing, evolving state standards, and diverse classroom reading dynamics. My mission through In Context Learning Solutions is to ensure that educators never have to navigate these challenges alone.
+              </p>
+            </div>
+          </div>
 
-              <div className="mt-4 border-t border-[#E2E8F0] pt-8">
-                <h3 className="font-serif font-bold text-[#0A1628] text-xl mb-3">
-                  Academic & Professional Credentials
-                </h3>
-                <p className="font-sans text-base text-[#4A5568] leading-relaxed mb-5">
-                  My approach to school district consulting combines practical, job-embedded classroom application with rigorous, evidence-based research.
-                </p>
-                <ul className="flex flex-col gap-4">
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#C9963A] shrink-0" aria-hidden="true" />
-                    <p className="font-sans text-sm text-[#1A202C] leading-relaxed">
-                      <strong className="font-semibold text-[#0A1628]">Doctorate in Education (Ed.D.)</strong> | Academic Focus on Curriculum, Instruction, and Educational Leadership (3.9 GPA).
-                    </p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#C9963A] shrink-0" aria-hidden="true" />
-                    <p className="font-sans text-sm text-[#1A202C] leading-relaxed">
-                      <strong className="font-semibold text-[#0A1628]">Professional Endorsements:</strong> Advanced specializations in Instructional Coaching, Gifted Education, and ESOL (English to Speakers of Other Languages).
-                    </p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#C9963A] shrink-0" aria-hidden="true" />
-                    <p className="font-sans text-sm text-[#1A202C] leading-relaxed">
-                      <strong className="font-semibold text-[#0A1628]">Leadership Profiles:</strong> Director of regional secondary history tournaments, voting delegate on local Panhellenic educational executive boards, and active leader within Delta Sigma Theta Sorority, Inc.
-                    </p>
-                  </li>
-                </ul>
+          {/* Block 2: Credentials Text Left, Image Right */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-center pt-10 border-t border-[#E2E8F0]">
+            <div className="md:col-span-3 order-2 md:order-1">
+              <h3 className="font-serif font-bold text-[#0A1628] text-xl mb-3">
+                Academic & Professional Credentials
+              </h3>
+              <p className="font-sans text-base text-[#4A5568] leading-relaxed mb-5">
+                My approach to school district consulting combines practical, job-embedded classroom application with rigorous, evidence-based research.
+              </p>
+              <ul className="flex flex-col gap-4">
+                <li className="flex items-start gap-3">
+                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#C9963A] shrink-0" aria-hidden="true" />
+                  <p className="font-sans text-sm text-[#1A202C] leading-relaxed">
+                    <strong className="font-semibold text-[#0A1628]">Doctorate in Education (Ed.D.)</strong> | Academic Focus on Curriculum, Instruction, and Educational Leadership (3.9 GPA).
+                  </p>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#C9963A] shrink-0" aria-hidden="true" />
+                  <p className="font-sans text-sm text-[#1A202C] leading-relaxed">
+                    <strong className="font-semibold text-[#0A1628]">Professional Endorsements:</strong> Advanced specializations in Instructional Coaching, Gifted Education, and ESOL (English to Speakers of Other Languages).
+                  </p>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#C9963A] shrink-0" aria-hidden="true" />
+                  <p className="font-sans text-sm text-[#1A202C] leading-relaxed">
+                    <strong className="font-semibold text-[#0A1628]">Leadership Profiles:</strong> Director of regional secondary history tournaments, voting delegate on local Panhellenic educational executive boards, and active leader within Delta Sigma Theta Sorority, Inc.
+                  </p>
+                </li>
+              </ul>
+            </div>
+
+            <div className="md:col-span-2 order-1 md:order-2">
+              <div
+                className="relative w-full border-2 border-[#C9963A] rounded-sm overflow-hidden bg-[#F4F6F9]"
+                style={{ aspectRatio: '3/4' }}
+              >
+                <Image
+                  src="/grad.jpeg"
+                  alt="Dr. Kimberly Miles credentials and professional background"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover object-center transition-transform duration-300 hover:scale-[1.02]"
+                />
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -149,7 +166,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ICLS PROMISE (Retained for conversion consistency) */}
+      {/* ICLS PROMISE */}
       <section className="bg-white py-20 px-6 lg:px-8 text-center" aria-label="The ICLS Promise">
         <div className="max-w-[680px] mx-auto">
           <SectionEyebrow className="mb-4">The ICLS Promise</SectionEyebrow>

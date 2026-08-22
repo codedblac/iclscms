@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { SectionEyebrow } from '@/components/section-eyebrow'
 import { CheckCircle, BookOpen, PenTool } from 'lucide-react'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Services | In Context Learning Solutions',
@@ -21,7 +22,6 @@ const consultingTiers = [
   },
   {
     tag: 'Coaching',
-    // badge: 'PREMIER MODEL',
     title: 'Collaborative Coaching Cohorts',
     bestFor: 'Departments committed to transforming text instruction into long-term student achievement.',
     desc: 'Our premier delivery model. We embed directly into your school building, joining teachers during their regular collaborative planning times. Together, we analyze student data, co-design rigorous lesson plans, model strategies in real classrooms, and provide immediate feedback. This ensures teachers feel deeply seen, heard, and understood.',
@@ -83,42 +83,71 @@ export default function ServicesPage() {
           <h1 className="font-serif font-bold text-white text-4xl sm:text-5xl tracking-[-0.02em] mb-6 text-balance leading-tight">
             Scalable, High-Impact Professional Learning Built for Sustained Growth.
           </h1>
-          <p className="font-sans text-white/80 text-base sm:text-lg leading-relaxed max-w-3xl">
+          <p className="font-sans text-white/80 text-base sm:text-lg leading-relaxed max-w-3xl mb-8">
             We do not believe in generic, one-size-fits-all reading mandates. Our service framework is divided into two precise instructional pillars to help departments target the exact needs of their students.
           </p>
+          <div>
+            <Link
+              href="#cta-section"
+              className="inline-block bg-[#C9963A] text-white font-sans font-semibold text-sm px-8 py-4 rounded-sm hover:bg-white hover:text-[#0A1628] transition-colors duration-150"
+            >
+              Book a Strategy Audit
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* TWO PILLARS */}
-      <section aria-label="The Two Pillars of Our Framework">
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="bg-[#F4F6F9] p-12 lg:p-20">
-            <span className="font-sans text-[10px] font-semibold tracking-[0.15em] uppercase text-[#C9963A] mb-3 block">
-              Pillar 1
-            </span>
-            <h3 className="font-serif font-bold text-[#0A1628] text-2xl md:text-3xl tracking-[-0.02em] mb-4">
-              Adolescent Literacy Foundations <span className="text-[#4A5568] block mt-1 text-xl font-normal">(The Access Tier)</span>
-            </h3>
+      {/* TWO PILLARS - WHITE BACKGROUND WITH CARDS */}
+      <section className="bg-white py-24 px-6 lg:px-8" aria-label="The Two Pillars of Our Framework">
+        <div className="max-w-7xl mx-auto">
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <SectionEyebrow className="mb-3">Our Core Instructional Framework</SectionEyebrow>
+            <h2 className="font-serif font-bold text-[#0A1628] text-3xl sm:text-4xl tracking-[-0.02em] mb-4">
+              Two Pillars. One Mission.
+            </h2>
             <p className="font-sans text-base text-[#4A5568] leading-relaxed">
-              We equip middle and high school teachers with actionable, low-prep reading, writing, and comprehension strategies. These foundational tools ensure that struggling readers can successfully decode, process, and extract basic information from dense secondary textbooks and complex informational texts.
+              Our service framework is divided into two precise instructional pillars — helping departments target the exact needs of their students and teachers.
             </p>
           </div>
-          <div className="bg-[#0A1628] p-12 lg:p-20">
-            <span className="font-sans text-[10px] font-semibold tracking-[0.15em] uppercase text-[#C9963A] mb-3 block">
-              Pillar 2
-            </span>
-            <h3 className="font-serif font-bold text-white text-2xl md:text-3xl tracking-[-0.02em] mb-4">
-              Disciplinary Literacy Specialization <span className="text-white/60 block mt-1 text-xl font-normal">(The Inquiry Tier)</span>
-            </h3>
-            <p className="font-sans text-base text-white/80 leading-relaxed">
-              We move students beyond basic comprehension and train them to read, write, and think like true historians. Teachers learn how to build advanced inquiry units focused on the core habits of the discipline: sourcing documents, analyzing historical context, identifying institutional bias, and corroborating conflicting evidence.
-            </p>
+
+          {/* Cards Container */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Pillar 1 Card */}
+            <div className="bg-[#F4F6F9] border border-[#E2E8F0] p-10 lg:p-12 rounded-sm shadow-sm flex flex-col justify-between transition-shadow duration-300 hover:shadow-md">
+              <div>
+                <span className="font-sans text-[10px] font-semibold tracking-[0.15em] uppercase text-[#C9963A] mb-3 block">
+                  Pillar 1
+                </span>
+                <h3 className="font-serif font-bold text-[#0A1628] text-2xl lg:text-3xl tracking-[-0.02em] mb-4">
+                  Adolescent Literacy Foundations <span className="text-[#4A5568] block mt-1 text-xl font-normal">(The Access Tier)</span>
+                </h3>
+                <p className="font-sans text-base text-[#4A5568] leading-relaxed">
+                  We equip middle and high school teachers with actionable, low-prep reading, writing, and comprehension strategies. These foundational tools ensure that struggling readers can successfully decode, process, and extract basic information from dense secondary textbooks and complex informational texts.
+                </p>
+              </div>
+            </div>
+
+            {/* Pillar 2 Card */}
+            <div className="bg-[#0A1628] border border-[#0A1628] p-10 lg:p-12 rounded-sm shadow-sm flex flex-col justify-between transition-shadow duration-300 hover:shadow-md">
+              <div>
+                <span className="font-sans text-[10px] font-semibold tracking-[0.15em] uppercase text-[#C9963A] mb-3 block">
+                  Pillar 2
+                </span>
+                <h3 className="font-serif font-bold text-white text-2xl lg:text-3xl tracking-[-0.02em] mb-4">
+                  Disciplinary Literacy Specialization <span className="text-white/60 block mt-1 text-xl font-normal">(The Inquiry Tier)</span>
+                </h3>
+                <p className="font-sans text-base text-white/80 leading-relaxed">
+                  We move students beyond basic comprehension and train them to read, write, and think like true historians. Teachers learn how to build advanced inquiry units focused on the core habits of the discipline: sourcing documents, analyzing historical context, identifying institutional bias, and corroborating conflicting evidence.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* THREE TIERS (Consulting) */}
-      <section className="bg-white py-24 px-6 lg:px-8" aria-label="Our Service Tiers">
+      <section className="bg-[#F4F6F9] py-24 px-6 lg:px-8 border-t border-[#E2E8F0]" aria-label="Our Service Tiers">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <SectionEyebrow className="mb-3">How We Work Together</SectionEyebrow>
@@ -141,11 +170,6 @@ export default function ServicesPage() {
                   <span className="font-sans text-[10px] font-semibold tracking-[0.12em] uppercase text-[#C9963A]">
                     {tier.tag}
                   </span>
-                  {/* {tier.badge && (
-                    <span className="font-sans text-[9px] font-bold tracking-wide uppercase bg-[#C9963A] text-white px-2.5 py-1 rounded-sm">
-                      {tier.badge}
-                    </span>
-                  )} */}
                 </div>
                 <h3 className="font-serif font-bold text-[#0A1628] text-2xl tracking-[-0.02em]">
                   {tier.title}
@@ -176,26 +200,43 @@ export default function ServicesPage() {
       </section>
 
       {/* ACADEMIC EDITING SECTION */}
-      <section className="bg-[#F4F6F9] py-24 px-6 lg:px-8 border-t border-[#E2E8F0]" aria-label="Academic Editing Services">
+      <section className="bg-white py-24 px-6 lg:px-8 border-t border-[#E2E8F0]" aria-label="Academic Editing Services">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-16">
-            <SectionEyebrow className="mb-3 flex items-center gap-2">
-              <PenTool size={16} /> Editing Services
-            </SectionEyebrow>
-            <h2 className="font-serif font-bold text-[#0A1628] text-3xl sm:text-4xl tracking-[-0.02em] mb-4">
-              Elevating Academic Voices: Authoritative Editing for Educational Texts
-            </h2>
-            <p className="font-sans text-base text-[#4A5568] leading-relaxed mb-4">
-              Transforming complex educational research, pedagogy, and curriculum into polished, publishable manuscripts.
-            </p>
-            <p className="font-sans text-base text-[#4A5568] leading-relaxed">
-              Writing an educational textbook, a peer-reviewed journal article, or a curriculum framework requires balancing dense academic research with engaging, readable prose. At In Context Learning Solutions, we provide premium, specialized developmental and copy editing services specifically tailored for academic authors, curriculum developers, independent education consultants, and publishers. We ensure your manuscript is instructionally sound, structurally rigorous, and ready for publication.
-            </p>
+          {/* Header Split with Image */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-center mb-16">
+            <div className="md:col-span-3">
+              <SectionEyebrow className="mb-3 flex items-center gap-2">
+                <PenTool size={16} /> Editing Services
+              </SectionEyebrow>
+              <h2 className="font-serif font-bold text-[#0A1628] text-3xl sm:text-4xl tracking-[-0.02em] mb-4">
+                Elevating Academic Voices: Authoritative Editing for Educational Texts
+              </h2>
+              <p className="font-sans text-base text-[#4A5568] leading-relaxed mb-4">
+                Transforming complex educational research, pedagogy, and curriculum into polished, publishable manuscripts.
+              </p>
+              <p className="font-sans text-base text-[#4A5568] leading-relaxed">
+                Writing an educational textbook, a peer-reviewed journal article, or a curriculum framework requires balancing dense academic research with engaging, readable prose. At In Context Learning Solutions, we provide premium, specialized developmental and copy editing services specifically tailored for academic authors, curriculum developers, independent education consultants, and publishers. We ensure your manuscript is instructionally sound, structurally rigorous, and ready for publication.
+              </p>
+            </div>
+            <div className="md:col-span-2">
+              <div
+                className="relative w-full border-2 border-[#C9963A] rounded-sm overflow-hidden bg-[#F4F6F9] shadow-md"
+                style={{ aspectRatio: '4/3' }}
+              >
+                <Image
+                  src="/readers.jpeg"
+                  alt="Authoritative Editing for Educational Texts"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover object-center transition-transform duration-300 hover:scale-[1.02]"
+                />
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
             {academicEditingTiers.map((tier) => (
-              <div key={tier.tag} className="bg-white border border-[#E2E8F0] p-8 rounded-sm shadow-sm flex flex-col">
+              <div key={tier.tag} className="bg-[#F4F6F9] border border-[#E2E8F0] p-8 rounded-sm shadow-sm flex flex-col">
                 <span className="font-sans text-[10px] font-semibold tracking-[0.12em] uppercase text-[#C9963A] mb-3">
                   {tier.tag}
                 </span>
@@ -262,26 +303,43 @@ export default function ServicesPage() {
       </section>
 
       {/* CHILDREN'S LITERATURE SECTION */}
-      <section className="bg-white py-24 px-6 lg:px-8" aria-label="Children's Literature Editing">
+      <section className="bg-[#F4F6F9] py-24 px-6 lg:px-8 border-t border-[#E2E8F0]" aria-label="Children's Literature Editing">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mb-12">
-            <SectionEyebrow className="mb-3">Children&apos;s Literature & Picture Books</SectionEyebrow>
-            <h2 className="font-serif font-bold text-[#0A1628] text-3xl sm:text-4xl tracking-[-0.02em] mb-4">
-              Crafting Impactful Stories for Young Readers
-            </h2>
-            <p className="font-sans text-base text-[#4A5568] leading-relaxed mb-4">
-              Writing a picture book requires an entirely unique set of rules. Every single word must earn its place on the page, the rhythm must feel effortless when read aloud, and the text must leave perfect structural room for the illustrator to bring the story to life.
-            </p>
-            <p className="font-sans text-base text-[#4A5568] leading-relaxed">
-              Whether you are writing a historical narrative, a multicultural story, or an early childhood concept book, we help you refine your manuscript to captivate young minds, engage parents, and align with early literacy standards.
-            </p>
+          {/* Header Split with Image */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-center mb-12">
+            <div className="md:col-span-3">
+              <SectionEyebrow className="mb-3">Children&apos;s Literature & Picture Books</SectionEyebrow>
+              <h2 className="font-serif font-bold text-[#0A1628] text-3xl sm:text-4xl tracking-[-0.02em] mb-4">
+                Crafting Impactful Stories for Young Readers
+              </h2>
+              <p className="font-sans text-base text-[#4A5568] leading-relaxed mb-4">
+                Writing a picture book requires an entirely unique set of rules. Every single word must earn its place on the page, the rhythm must feel effortless when read aloud, and the text must leave perfect structural room for the illustrator to bring the story to life.
+              </p>
+              <p className="font-sans text-base text-[#4A5568] leading-relaxed">
+                Whether you are writing a historical narrative, a multicultural story, or an early childhood concept book, we help you refine your manuscript to captivate young minds, engage parents, and align with early literacy standards.
+              </p>
+            </div>
+            <div className="md:col-span-2">
+              <div
+                className="relative w-full border-2 border-[#C9963A] rounded-sm overflow-hidden bg-white shadow-md"
+                style={{ aspectRatio: '4/3' }}
+              >
+                <Image
+                  src="/editing.jpeg"
+                  alt="Crafting Impactful Picture Books for Young Readers"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover object-center transition-transform duration-300 hover:scale-[1.02]"
+                />
+              </div>
+            </div>
           </div>
 
           {/* Picture Book Tiers */}
           <h3 className="font-serif font-bold text-[#0A1628] text-2xl mb-8">Specialized Picture Book Editing Tiers</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {pictureBookTiers.map((tier) => (
-              <div key={tier.tag} className="border-l-4 border-[#C9963A] pl-6 py-2">
+              <div key={tier.tag} className="border-l-4 border-[#C9963A] pl-6 py-2 bg-white p-6 rounded-r-sm shadow-sm">
                 <h4 className="font-serif font-bold text-[#0A1628] text-xl tracking-[-0.02em] mb-3">
                   {tier.title}
                 </h4>
@@ -306,7 +364,7 @@ export default function ServicesPage() {
           </div>
 
           {/* What We Edit in Early Literacy */}
-          <div className="bg-[#F4F6F9] rounded-sm p-8 md:p-12 border border-[#E2E8F0]">
+          <div className="bg-white rounded-sm p-8 md:p-12 border border-[#E2E8F0] shadow-sm">
             <h3 className="font-serif font-bold text-[#0A1628] text-2xl mb-6">What We Edit in Early Literacy</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
@@ -333,7 +391,7 @@ export default function ServicesPage() {
       </section>
 
       {/* FINAL CALL TO ACTION */}
-      <section className="bg-[#0A1628] py-20 px-6 lg:px-8 text-center" aria-label="Call to action">
+      <section id="cta-section" className="bg-[#0A1628] py-20 px-6 lg:px-8 text-center scroll-mt-20" aria-label="Call to action">
         <div className="max-w-2xl mx-auto">
           <h2 className="font-serif font-bold text-white text-3xl sm:text-4xl tracking-[-0.02em] mb-6">
             Ready to Bring Your Story to Life?
