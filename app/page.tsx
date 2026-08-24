@@ -515,7 +515,7 @@ export default async function HomePage() {
           {/* Kit Form Container */}
           <div className="bg-[#F4F6F9] border border-[#E2E8F0] rounded-sm p-6 sm:p-8 lg:p-10 shadow-sm">
 
-            <div className="text-center mb-6">
+            {/* <div className="text-center mb-6">
 
               <h3 className="font-serif font-bold text-[#0A1628] text-xl sm:text-2xl mb-2">
                 Get Your Free Guide
@@ -525,7 +525,7 @@ export default async function HomePage() {
                 Enter your details below to receive The Contextual Shift guide.
               </p>
 
-            </div>
+            </div> */}
 
             {/* Kit Embedded Form */}
             <KitForm />

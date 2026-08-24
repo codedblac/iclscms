@@ -106,7 +106,7 @@ export default function ProcurementPage() {
         </div>
       </section>
 
-      {/* DOWNLOAD DIGITAL ASSETS (SEPARATED OUT) */}
+      {/* DOWNLOAD DIGITAL ASSETS */}
       <section className="bg-[#F4F6F9] py-24 px-6 lg:px-8 border-t border-[#E2E8F0]" aria-label="Digital assets and downloads">
         <div className="max-w-5xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -134,9 +134,11 @@ export default function ProcurementPage() {
                 </p>
               </div>
               <a
-                href="#"
+                href="/ICLS_Capability_Statement_Branded.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 justify-center bg-[#C9963A] text-white font-sans font-semibold text-sm px-5 py-3.5 rounded-sm hover:bg-[#0A1628] transition-colors duration-150"
-                aria-label="Download Full Capability Statement PDF (coming soon)"
+                aria-label="Open Full Capability Statement PDF in a new tab"
               >
                 <Download size={16} aria-hidden="true" />
                 Download Capability Statement (PDF)
@@ -157,9 +159,11 @@ export default function ProcurementPage() {
                 </p>
               </div>
               <a
-                href="#"
+                href="/ICLS_Corporate_Vendor_Profile_Branded.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 justify-center bg-[#0A1628] text-white font-sans font-semibold text-sm px-5 py-3.5 rounded-sm hover:bg-[#C9963A] transition-colors duration-150"
-                aria-label="Download Corporate Vendor Profile PDF (coming soon)"
+                aria-label="Open Corporate Vendor Profile PDF in a new tab"
               >
                 <FileText size={16} aria-hidden="true" />
                 Download Corporate Vendor Profile (PDF)

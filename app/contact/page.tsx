@@ -33,35 +33,7 @@ export default function ContactPage() {
           {/* MAIN CONTENT AREA (Calendar & Form) */}
           <div className="lg:col-span-7 xl:col-span-8 flex flex-col gap-16">
             
-            {/* Strategy Audit Scheduling */}
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="bg-[#C9963A]/10 p-2 rounded-sm">
-                  <Calendar size={20} className="text-[#C9963A]" aria-hidden="true" />
-                </div>
-                <h2 className="font-serif font-bold text-[#0A1628] text-2xl tracking-[-0.02em]">
-                  Schedule a Social Studies Strategy Audit
-                </h2>
-              </div>
-              <p className="font-sans text-base text-[#4A5568] leading-relaxed mb-6 max-w-2xl">
-                Ready to address the pacing panic in your schools? Book a complimentary, 20-minute strategy call directly with Dr. Miles to analyze your current curriculum goals and pinpoint high-yield growth opportunities for your teachers.
-              </p>
-              
-              {/* Functional Calendly Widget */}
-              <div className="w-full h-[650px] sm:h-[700px] rounded-sm overflow-hidden border border-[#E2E8F0] shadow-sm bg-white">
-                <iframe
-                  // TODO: Replace with your specific Calendly event URL
-                  src="https://calendly.com/YOUR_USERNAME/YOUR_EVENT_TYPE"
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  title="Schedule a Strategy Audit with Dr. Miles"
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
-
-            <hr className="border-[#E2E8F0]" />
+            
 
             {/* General Inquiry Form */}
             <div>
