@@ -22,14 +22,19 @@ export function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80)
+
     window.addEventListener('scroll', onScroll, { passive: true })
+
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   // Close menu on route change
-  useEffect(() => setMobileOpen(false), [pathname])
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [pathname])
 
   const isAdmin = pathname.startsWith('/admin')
+
   if (isAdmin) return null
 
   return (
@@ -51,11 +56,11 @@ export function Navbar() {
           aria-label="In Context Learning Solutions — Home"
         >
           {/* Bold Gold Bar (Left Anchor) */}
-          <div 
-            className="w-[3px] bg-[#C9963A] rounded-full transition-transform duration-150 group-hover:scale-y-105" 
+          <div
+            className="w-[3px] bg-[#C9963A] rounded-full transition-transform duration-150 group-hover:scale-y-105"
             aria-hidden="true"
           />
-          
+
           {/* Stacked Branding Details */}
           <div className="flex flex-col justify-center">
             <span
@@ -65,10 +70,10 @@ export function Navbar() {
             >
               ICLS
             </span>
-            
+
             {/* Elegant Divider Line */}
-            <div 
-              className={`h-[1px]  w-full my-1 transition-colors duration-150 ${
+            <div
+              className={`h-[1px] w-full my-1 transition-colors duration-150 ${
                 scrolled ? 'bg-[#0A1628]/25' : 'bg-white/25'
               }`}
               aria-hidden="true"
@@ -99,17 +104,22 @@ export function Navbar() {
               }`}
             >
               {link.label}
+
               {pathname === link.href && (
                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#C9963A]" />
               )}
             </Link>
           ))}
-          <Link
-            href="/contact"
+
+          {/* Desktop Calendly Button */}
+          <a
+            href="https://calendly.com/incontextlearningsolutions-info/strategy-audit"
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-2 bg-[#C9963A] text-white font-sans text-sm font-semibold px-5 py-2.5 rounded-sm hover:bg-[#F0C97A] hover:text-[#0A1628] transition-colors duration-150 whitespace-nowrap"
           >
             Book a Strategy Audit
-          </Link>
+          </a>
         </div>
 
         {/* Mobile hamburger */}
@@ -148,12 +158,16 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/contact"
+
+          {/* Mobile Calendly Button */}
+          <a
+            href="https://calendly.com/incontextlearningsolutions-info/strategy-audit"
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-4 bg-[#C9963A] text-white font-sans text-sm font-semibold px-5 py-3 rounded-sm text-center hover:bg-[#F0C97A] hover:text-[#0A1628] transition-colors duration-150"
           >
             Book a Strategy Audit
-          </Link>
+          </a>
         </div>
       </div>
     </header>

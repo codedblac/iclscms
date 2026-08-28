@@ -504,10 +504,10 @@ export default async function HomePage() {
               that impossible trade-off.
             </p>
 
-            <p className="font-serif text-lg sm:text-xl font-semibold text-[#0A1628]">
+            {/* <p className="font-serif text-lg sm:text-xl font-semibold text-[#0A1628]">
               The Contextual Shift: 5 Ways to Integrate Literacy Without
               Losing Content Pacing
-            </p>
+            </p> */}
 
           </div>
 

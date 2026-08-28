@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Contact | In Context Learning Solutions',
   description:
     "Start turning your district's literacy mandates into classroom movements. Book a strategy audit or send an inquiry for consulting and professional development.",
-  alternates: { canonical: 'https://incontextls.com/contact' },
+  alternates: { canonical: 'https://incontextlearningsolutions.com/contact' },
 }
 
 export default function ContactPage() {
@@ -77,14 +77,14 @@ export default function ContactPage() {
               <div className="flex flex-col gap-5">
                 {/* Email Link */}
                 <a
-                  href="mailto:info@incontextls.com"
+                  href="mailto:info@incontextlearningsolutions.com"
                   className="flex items-center gap-3 group"
                 >
                   <div className="bg-white border border-[#E2E8F0] p-2 rounded-sm group-hover:border-[#C9963A] transition-colors">
                     <Mail size={16} className="text-[#C9963A]" aria-hidden="true" />
                   </div>
                   <span className="font-sans text-sm font-medium text-[#1A202C] group-hover:text-[#C9963A] transition-colors">
-                    info@incontextls.com
+                    info@incontextlearningsolutions.com
                   </span>
                 </a>
 
