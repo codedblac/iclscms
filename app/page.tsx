@@ -5,7 +5,6 @@ import { createClient } from '@/lib/supabase/server'
 import { SectionEyebrow } from '@/components/section-eyebrow'
 import { HomeCarousel } from '@/components/home-carousel'
 import { TestimonialCard } from '@/components/testimonial-card'
-import { EmailSubscribeForm } from '@/components/email-subscribe-form'
 import { KitForm } from '@/components/kit-form'
 import { BookOpen, Users, Target } from 'lucide-react'
 
@@ -16,7 +15,121 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://incontextls.com' },
 }
 
+function getImgUrl(val: any, fallback: string): string {
+  if (typeof val === 'string' && val.trim() !== '') return val
+  if (val?.node?.sourceUrl) return val.node.sourceUrl
+  if (val?.sourceUrl) return val.sourceUrl
+  return fallback
+}
+
+async function getHomePageData() {
+  const query = `
+    query GetHomePage {
+      page(id: "458", idType: DATABASE_ID) {
+        homepagecontent {
+  heroTitle
+  heroDescription
+  heroBtn1Text
+  heroBtn2Text
+
+  heroImage {
+    node {
+      sourceUrl
+    }
+  }
+
+  tensionTitle
+  tensionP1
+  tensionP2
+  tensionP3
+
+  distinctionTitle
+  distinctionHighlightP1
+  distinctionHighlightP2
+  distinctionCalloutP1
+  distinctionCalloutP2
+  distinctionCalloutP3
+
+  approachTitle
+  approachP1
+  approachP2
+  approachP3
+
+  servicesEyebrow
+  servicesTitle
+  tier1Title
+  tier1Desc
+  tier2Title
+  tier2Desc
+  tier3Title
+  tier3Desc
+
+  bioImage {
+    node {
+      sourceUrl
+    }
+  }
+
+  bioName
+  bioTitle
+  bioEyebrow
+  bioHeading
+  bioText1
+  bioText2
+  bioItalicText
+  bioResearchLink
+
+  testimonialsEyebrow
+  testimonialsTitle
+
+  resourceEyebrow
+  resourceTitle
+  resourceDesc
+
+  ctaTitle
+  ctaDesc
+  ctaBtnText
+
+        }
+      }
+    }
+  `
+
+try {
+  const res = await fetch(
+    process.env.NEXT_PUBLIC_WORDPRESS_API_URL ||
+      'https://1276612.us31.myftpupload.com/?graphql=true',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query }),
+      cache: 'no-store',
+    }
+  )
+
+  const result = await res.json()
+
+  console.log('WORDPRESS GRAPHQL RESULT:', result)
+
+  if (!res.ok) {
+    console.error('WORDPRESS HTTP ERROR:', result)
+    return null
+  }
+
+  if (result.errors) {
+    console.error('WORDPRESS GRAPHQL ERRORS:', result.errors)
+    return null
+  }
+
+  return result?.data?.page?.homepagecontent ?? null
+} catch (error) {
+  console.error('WORDPRESS FETCH ERROR:', error)
+  return null
+}
+}
+
 export default async function HomePage() {
+  const wpData = await getHomePageData()
   const supabase = await createClient()
 
   const { data: testimonials } = await supabase
@@ -25,46 +138,45 @@ export default async function HomePage() {
     .eq('display', true)
     .limit(3)
 
+  const heroImgSrc = getImgUrl(
+    wpData?.heroImage,
+    'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dr-kim-FRWMfJtVuLIxOGTJNoHlVBrDAPwd2b.jpeg'
+  )
+
+  const bioImgSrc = getImgUrl(wpData?.bioImage, '/dr-kim.jpeg')
+
   return (
     <>
       {/* ========================================================= */}
       {/* HERO */}
       {/* ========================================================= */}
 
-      <section
-        className="relative min-h-screen bg-[#0A1628] hero-grid-texture overflow-hidden"
-        aria-label="Hero"
-      >
+      <section className="relative min-h-screen bg-[#0A1628] hero-grid-texture overflow-hidden" aria-label="Hero">
         {/* Background gradient overlay */}
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#122244] to-[#0A1628] opacity-80 pointer-events-none z-0"
-          aria-hidden="true"
-        />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#122244] to-[#0A1628] opacity-80 pointer-events-none z-0" aria-hidden="true" />
 
         {/* Hero content wrapper */}
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 min-h-screen items-stretch">
-
           {/* Left Content Section */}
           <div className="flex items-center px-6 sm:px-8 md:px-10 lg:px-12 py-20 lg:py-24 overflow-y-auto lg:overflow-y-visible">
             <div className="w-full max-w-xl mx-auto lg:mx-0">
               <div className="flex flex-col gap-6">
-
+                
                 <h1 className="font-serif font-bold text-white text-4xl sm:text-5xl lg:text-5xl xl:text-6xl leading-[1.1] tracking-[-0.02em] text-balance">
-                  Your teachers already know the content. Let&rsquo;s teach them to teach it differently.
+                  {wpData?.heroTitle || 'Your teachers already know the content. Let’s teach them to teach it differently.'}
                 </h1>
 
                 <p className="font-sans text-[#F4F6F9]/85 text-base sm:text-lg leading-relaxed">
-                  Dr. Kimberly Nicole Miles partners with K&ndash;12 districts and curriculum leaders to bring disciplinary literacy directly into secondary Social Studies classrooms &mdash; without adding to your teachers&rsquo; load or losing a single week on the pacing guide.
+                  {wpData?.heroDescription || 'Dr. Kimberly Nicole Miles partners with K–12 districts and curriculum leaders to bring disciplinary literacy directly into secondary Social Studies classrooms — without adding to your teachers’ load or losing a single week on the pacing guide.'}
                 </p>
 
                 {/* HERO CTAs */}
                 <div className="flex flex-col sm:flex-row gap-3 mt-2">
-
                   <Link
                     href="/services"
                     className="bg-[#C9963A] text-white font-sans font-semibold text-sm px-7 py-3.5 rounded-sm hover:bg-[#F0C97A] hover:text-[#0A1628] transition-all duration-200 text-center active:scale-95"
                   >
-                    Learn More &rarr;
+                    {wpData?.heroBtn1Text || 'Learn More →'}
                   </Link>
 
                   {/* Scroll to Kit Form */}
@@ -72,9 +184,8 @@ export default async function HomePage() {
                     href="#free-guide"
                     className="border border-white/40 text-white font-sans font-semibold text-sm px-7 py-3.5 rounded-sm hover:border-white hover:bg-white/10 transition-all duration-200 text-center active:scale-95"
                   >
-                    Download The Contextual Shift Guide
+                    {wpData?.heroBtn2Text || 'Download The Contextual Shift Guide'}
                   </a>
-
                 </div>
 
               </div>
@@ -83,487 +194,276 @@ export default async function HomePage() {
 
           {/* Right Image Section */}
           <div className="relative hidden lg:flex lg:flex-col lg:items-stretch lg:overflow-hidden">
-
             <Image
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dr-kim-FRWMfJtVuLIxOGTJNoHlVBrDAPwd2b.jpeg"
+              src={heroImgSrc}
               alt="Dr. Kimberly Miles, EdD - Secondary Social Studies Education Consultant"
               fill
               className="object-cover object-center"
               priority
             />
-
             {/* Gradient overlay */}
-            <div
-              className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0A1628]/30 to-[#0A1628]/60 pointer-events-none transition-opacity duration-700"
-              aria-hidden="true"
-            />
-
+            <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#0A1628]/30 to-[#0A1628]/60 pointer-events-none transition-opacity duration-700" aria-hidden="true" />
           </div>
         </div>
       </section>
-
 
       {/* ========================================================= */}
       {/* SECTION 2: THE REAL TENSION */}
       {/* ========================================================= */}
 
-      <section
-        className="bg-white py-20 px-6 lg:px-8"
-        aria-label="The Real Tension"
-      >
+      <section className="bg-white py-20 px-6 lg:px-8" aria-label="The Real Tension">
         <div className="max-w-3xl mx-auto text-center mb-10">
-
           <h2 className="font-serif font-bold text-[#0A1628] text-3xl sm:text-4xl tracking-[-0.02em] text-balance">
-            The mandate landed. The pacing guide didn&rsquo;t move.
+            {wpData?.tensionTitle || 'The mandate landed. The pacing guide didn’t move.'}
           </h2>
-
         </div>
 
         <div className="max-w-[720px] mx-auto text-center flex flex-col gap-6">
-
           <p className="font-sans text-base text-[#4A5568] leading-relaxed">
-            You&rsquo;ve been handed a district-wide literacy initiative. Your Social Studies teachers have a curriculum map that waits for no one. And somewhere in the middle, students are being asked to read like historians without ever being taught how.
+            {wpData?.tensionP1 || 'You’ve been handed a district-wide literacy initiative. Your Social Studies teachers have a curriculum map that waits for no one. And somewhere in the middle, students are being asked to read like historians without ever being taught how.'}
           </p>
-
           <p className="font-sans text-base font-semibold text-[#0A1628] leading-relaxed">
-            This is the gap Dr. Miles closes.
+            {wpData?.tensionP2 || 'This is the gap Dr. Miles closes.'}
           </p>
-
           <p className="font-sans text-base text-[#4A5568] leading-relaxed">
-            Not with generic reading strategies stapled onto your existing units. Not with a two-day PD that disappears by Monday. But with job-embedded coaching that meets your teachers where they are &mdash; inside their planning time, inside their content, inside their classrooms.
+            {wpData?.tensionP3 || 'Not with generic reading strategies stapled onto your existing units. Not with a two-day PD that disappears by Monday. But with job-embedded coaching that meets your teachers where they are — inside their planning time, inside their content, inside their classrooms.'}
           </p>
-
         </div>
       </section>
-
 
       {/* ========================================================= */}
       {/* SECTION 3: THE DISTINCTION THAT MATTERS */}
       {/* ========================================================= */}
 
-      <section
-        className="bg-[#F4F6F9] py-20 px-6 lg:px-8"
-        aria-label="The Distinction That Matters"
-      >
+      <section className="bg-[#F4F6F9] py-20 px-6 lg:px-8" aria-label="The Distinction That Matters">
         <div className="max-w-4xl mx-auto">
-
           <div className="text-center mb-10">
-
             <h2 className="font-serif font-bold text-[#0A1628] text-2xl sm:text-3xl tracking-[-0.02em] mb-4">
-              There&rsquo;s a difference. Most PD doesn&rsquo;t know it.
+              {wpData?.distinctionTitle || 'There’s a difference. Most PD doesn’t know it.'}
             </h2>
-
           </div>
 
           <div className="max-w-3xl mx-auto mb-12 border-l-4 border-[#C9963A] pl-6 md:pl-8 py-2">
-
             <p className="font-sans text-[#4A5568] text-base leading-relaxed mb-3">
-              Most literacy professional development teaches adolescent literacy — foundational strategies for accessing complex text.
+              {wpData?.distinctionHighlightP1 || 'Most literacy professional development teaches adolescent literacy — foundational strategies for accessing complex text.'}
             </p>
-
             <p className="font-serif text-[#0A1628] text-xl md:text-2xl font-bold leading-snug">
-              Dr. Miles teaches disciplinary literacy — the specialized practice of reading, writing, and thinking like a historian.
+              {wpData?.distinctionHighlightP2 || 'Dr. Miles teaches disciplinary literacy — the specialized practice of reading, writing, and thinking like a historian.'}
             </p>
-
           </div>
 
           <div className="bg-white rounded-sm p-8 border border-[#E2E8F0] shadow-sm max-w-3xl mx-auto text-center flex flex-col gap-4">
-
             <p className="font-sans text-sm text-[#4A5568] leading-relaxed">
-              That distinction changes everything. A student who can identify the main idea of a passage is not the same as a student who can source a primary document, contextualize an era, and corroborate competing accounts.
+              {wpData?.distinctionCalloutP1 || 'That distinction changes everything. A student who can identify the main idea of a passage is not the same as a student who can source a primary document, contextualize an era, and corroborate competing accounts.'}
             </p>
-
             <p className="font-serif text-lg font-semibold text-[#0A1628]">
-              The second student is college-ready. The second student is what Social Studies was always meant to produce.
+              {wpData?.distinctionCalloutP2 || 'The second student is college-ready. The second student is what Social Studies was always meant to produce.'}
             </p>
-
             <p className="font-sans text-sm font-semibold text-[#C9963A] uppercase tracking-wider">
-              ICLS exists to get your department there.
+              {wpData?.distinctionCalloutP3 || 'ICLS exists to get your department there.'}
             </p>
-
           </div>
-
         </div>
       </section>
-
 
       {/* ========================================================= */}
       {/* SECTION 4: THE APPROACH */}
       {/* ========================================================= */}
 
-      <section
-        className="bg-white py-20 px-6 lg:px-8"
-        aria-label="The Approach"
-      >
+      <section className="bg-white py-20 px-6 lg:px-8" aria-label="The Approach">
         <div className="max-w-4xl mx-auto">
-
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
-
             <div className="md:col-span-2">
-
               <h2 className="font-serif font-bold text-[#0A1628] text-3xl sm:text-4xl tracking-[-0.02em] leading-tight">
-                We go where the work actually happens.
+                {wpData?.approachTitle || 'We go where the work actually happens.'}
               </h2>
-
             </div>
 
             <div className="md:col-span-3 flex flex-col gap-4 border-l border-[#E2E8F0] md:pl-8">
-
-              <p className="font-sans text-sm text-[#4A5568] leading-relaxed">
-                Every ICLS engagement is built around one principle: <strong>real change happens in collaborative planning rooms, not conference centers.</strong>
-              </p>
-
-              <p className="font-sans text-sm text-[#4A5568] leading-relaxed">
-                Dr. Miles embeds directly into your teachers&rsquo; professional learning communities &mdash; bringing targeted historical inquiry routines into the spaces where your team already works together. No extra sessions to schedule. No separate literacy block to carve out. <strong>The content is the literacy.</strong>
-              </p>
-
-              <p className="font-sans text-sm text-[#4A5568] leading-relaxed">
-                When teachers feel genuinely supported &mdash; not managed, not mandated &mdash; they build the confidence to lead students deeper. That&rsquo;s where student growth becomes measurable.
-              </p>
-
+              <p className="font-sans text-sm text-[#4A5568] leading-relaxed" dangerouslySetInnerHTML={{ __html: wpData?.approachP1 || 'Every ICLS engagement is built around one principle: <strong>real change happens in collaborative planning rooms, not conference centers.</strong>' }} />
+              <p className="font-sans text-sm text-[#4A5568] leading-relaxed" dangerouslySetInnerHTML={{ __html: wpData?.approachP2 || 'Dr. Miles embeds directly into your teachers&rsquo; professional learning communities &mdash; bringing targeted historical inquiry routines into the spaces where your team already works together. No extra sessions to schedule. No separate literacy block to carve out. <strong>The content is the literacy.</strong>' }} />
+              <p className="font-sans text-sm text-[#4A5568] leading-relaxed" dangerouslySetInnerHTML={{ __html: wpData?.approachP3 || 'When teachers feel genuinely supported &mdash; not managed, not mandated &mdash; they build the confidence to lead students deeper. That&rsquo;s where student growth becomes measurable.' }} />
             </div>
-
           </div>
-
         </div>
       </section>
-
 
       {/* ========================================================= */}
       {/* TIERED SERVICES SNAPSHOT */}
       {/* ========================================================= */}
 
-      <section
-        className="bg-white py-20 px-6 lg:px-8 border-t border-[#E2E8F0]"
-        aria-label="Services overview"
-      >
+      <section className="bg-white py-20 px-6 lg:px-8 border-t border-[#E2E8F0]" aria-label="Services overview">
         <div className="max-w-6xl mx-auto">
-
           <div className="text-center mb-12">
-
             <SectionEyebrow className="mb-3">
-              What We Offer
+              {wpData?.servicesEyebrow || 'What We Offer'}
             </SectionEyebrow>
-
             <h2 className="font-serif font-bold text-[#0A1628] text-3xl sm:text-4xl tracking-[-0.02em]">
-              Three Tiers. One Mission.
+              {wpData?.servicesTitle || 'Three Tiers. One Mission.'}
             </h2>
-
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
             {[
               {
                 icon: BookOpen,
                 tier: 'Tier 1',
-                title: 'Foundational PD Workshops',
-                desc: "High-impact single sessions aligned to your district's current literacy goals and Social Studies curriculum standards.",
+                title: wpData?.tier1Title || 'Foundational PD Workshops',
+                desc: wpData?.tier1Desc || "High-impact single sessions aligned to your district's current literacy goals and Social Studies curriculum standards.",
               },
               {
                 icon: Users,
                 tier: 'Tier 2',
-                title: 'Collaborative Coaching Cohorts',
-                desc: 'Job-embedded support delivered during teacher planning periods. Live co-planning that honors curriculum pacing.',
+                title: wpData?.tier2Title || 'Collaborative Coaching Cohorts',
+                desc: wpData?.tier2Desc || 'Job-embedded support delivered during teacher planning periods. Live co-planning that honors curriculum pacing.',
               },
               {
                 icon: Target,
                 tier: 'Tier 3',
-                title: 'Strategic Partnerships & Rigor Audits',
-                desc: 'District-wide instructional alignment. An instructional audit and multi-year literacy integration roadmap for your department.',
+                title: wpData?.tier3Title || 'Strategic Partnerships & Rigor Audits',
+                desc: wpData?.tier3Desc || 'District-wide instructional alignment. An instructional audit and multi-year literacy integration roadmap for your department.',
               },
             ].map(({ icon: Icon, tier, title, desc }) => (
-
-              <div
-                key={tier}
-                className="border border-[#E2E8F0] rounded-sm p-6 shadow-[0_1px_4px_rgba(0,0,0,0.08)] flex flex-col gap-4 hover:border-[#C9963A] transition-colors duration-150"
-              >
-
+              <div key={tier} className="border border-[#E2E8F0] rounded-sm p-6 shadow-[0_1px_4px_rgba(0,0,0,0.08)] flex flex-col gap-4 hover:border-[#C9963A] transition-colors duration-150">
                 <div className="w-10 h-10 rounded-sm bg-[#C9963A]/10 flex items-center justify-center">
-                  <Icon
-                    size={20}
-                    className="text-[#C9963A]"
-                    aria-hidden="true"
-                  />
+                  <Icon size={20} className="text-[#C9963A]" aria-hidden="true" />
                 </div>
-
                 <div>
-
                   <span className="font-sans text-[10px] font-semibold tracking-[0.12em] uppercase text-[#C9963A]">
                     {tier}
                   </span>
-
                   <h3 className="font-serif font-bold text-[#0A1628] text-lg mt-1 tracking-[-0.02em]">
                     {title}
                   </h3>
-
                 </div>
-
                 <p className="font-sans text-sm text-[#4A5568] leading-relaxed flex-1">
                   {desc}
                 </p>
-
-                <Link
-                  href="/services"
-                  className="font-sans text-sm font-semibold text-[#C9963A] hover:text-[#0A1628] transition-colors duration-150"
-                >
+                <Link href="/services" className="font-sans text-sm font-semibold text-[#C9963A] hover:text-[#0A1628] transition-colors duration-150">
                   Learn More &rarr;
                 </Link>
-
               </div>
-
             ))}
-
           </div>
-
         </div>
       </section>
-
 
       {/* ========================================================= */}
       {/* SECTION 5: MEET DR. MILES */}
       {/* ========================================================= */}
 
-      <section
-        className="bg-[#0A1628] py-20 px-6 lg:px-8 text-white"
-        aria-label="Meet Dr. Miles"
-      >
+      <section className="bg-[#0A1628] py-20 px-6 lg:px-8 text-white" aria-label="Meet Dr. Miles">
         <div className="max-w-5xl mx-auto">
-
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
             {/* Left Column */}
             <div className="lg:col-span-5 flex flex-col items-center lg:items-start gap-6">
-
               <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden border-4 border-[#C9963A] shadow-xl flex-shrink-0">
-
-                <Image
-                  src="/dr-kim.jpeg"
-                  alt="Dr. Kimberly Nicole Miles, Ed.D."
-                  fill
-                  sizes="(max-width: 640px) 192px, 224px"
-                  className="object-cover object-center"
-                  priority
-                />
-
+                <Image src={bioImgSrc} alt={wpData?.bioName || 'Dr. Kimberly Nicole Miles, Ed.D.'} fill sizes="(max-width: 640px) 192px, 224px" className="object-cover object-center" priority />
               </div>
-
               <div className="text-center lg:text-left">
-
                 <h3 className="font-serif font-bold text-xl text-white">
-                  Dr. Kimberly Nicole Miles
+                  {wpData?.bioName || 'Dr. Kimberly Nicole Miles'}
                 </h3>
-
                 <p className="font-sans text-xs text-[#C9963A] font-medium tracking-wide uppercase mt-1">
-                  Founder &amp; Lead Consultant, Ed.D.
+                  {wpData?.bioTitle || 'Founder & Lead Consultant, Ed.D.'}
                 </p>
-
               </div>
-
             </div>
 
             {/* Right Column */}
             <div className="lg:col-span-7 flex flex-col gap-6">
-
-              <SectionEyebrow>
-                Meet Dr. Miles
-              </SectionEyebrow>
-
+              <SectionEyebrow>{wpData?.bioEyebrow || 'Meet Dr. Miles'}</SectionEyebrow>
               <h2 className="font-serif font-bold text-3xl sm:text-4xl tracking-[-0.02em]">
-                Twenty years in the room. Now she&rsquo;s in yours.
+                {wpData?.bioHeading || 'Twenty years in the room. Now she’s in yours.'}
               </h2>
-
               <p className="font-sans text-sm text-[#F4F6F9]/80 leading-relaxed">
-                Dr. Kimberly Nicole Miles built ICLS from the inside out &mdash; starting in elementary classrooms, moving through secondary and collegiate instruction, and spending two decades watching what happens when literacy is treated as an English teacher&rsquo;s problem instead of everyone&rsquo;s responsibility.
+                {wpData?.bioText1 || 'Dr. Kimberly Nicole Miles built ICLS from the inside out — starting in elementary classrooms, moving through secondary and collegiate instruction, and spending two decades watching what happens when literacy is treated as an English teacher’s problem instead of everyone’s responsibility.'}
               </p>
-
               <p className="font-sans text-sm text-[#F4F6F9]/80 leading-relaxed">
-                She holds an Ed.D. with professional endorsements in Instructional Coaching, Gifted Education, ESOL, and Math (K&ndash;5). Her peer-reviewed research on adolescent disciplinary literacy in Georgia&rsquo;s Social Studies classrooms has been recognized as a benchmark regional framework for secondary integration.
+                {wpData?.bioText2 || 'She holds an Ed.D. with professional endorsements in Instructional Coaching, Gifted Education, ESOL, and Math (K–5). Her peer-reviewed research on adolescent disciplinary literacy in Georgia’s Social Studies classrooms has been recognized as a benchmark regional framework for secondary integration.'}
               </p>
-
               <p className="font-serif italic text-base text-[#C9963A]">
-                She doesn&rsquo;t just study this. She&rsquo;s lived it.
+                {wpData?.bioItalicText || 'She doesn’t just study this. She’s lived it.'}
               </p>
-
               <div>
-
-                <a
-                  href="https://digitalcommons.georgiasouthern.edu/sspeach/vol4/iss1/5/?fbclid=IwZnRzaAS5OKJwZG9mA2ZkaWQWUKHUOUTJgpkDuhaCgpP04JOjSVHOJWV4dG4DYWVtAjExAHNydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR4EVi8owYmwW13nolqZ6b3WrI3DyiNSJ4J_VokkJPH-WwKJsTc30iGxfW1xaQ_aem_hIDZxMNXnAcaFFTXTu1Gpg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-[#C9963A] text-white font-sans font-semibold text-xs px-6 py-3.5 rounded-sm hover:bg-[#F0C97A] hover:text-[#0A1628] transition-colors duration-150"
-                >
+                <a href={wpData?.bioResearchLink || 'https://digitalcommons.georgiasouthern.edu/sspeach/vol4/iss1/5/'} target="_blank" rel="noopener noreferrer" className="inline-block bg-[#C9963A] text-white font-sans font-semibold text-xs px-6 py-3.5 rounded-sm hover:bg-[#F0C97A] hover:text-[#0A1628] transition-colors duration-150">
                   Read her published research &rarr;
                 </a>
-
               </div>
-
             </div>
-
           </div>
-
         </div>
       </section>
-
 
       {/* ========================================================= */}
       {/* TESTIMONIALS */}
       {/* ========================================================= */}
 
-      <section
-        className="bg-[#F4F6F9] py-20 px-6 lg:px-8"
-        aria-label="Testimonials"
-      >
+      <section className="bg-[#F4F6F9] py-20 px-6 lg:px-8" aria-label="Testimonials">
         <div className="max-w-6xl mx-auto">
-
           <div className="text-center mb-12">
-
             <SectionEyebrow className="mb-3">
-              What Educators Say
+              {wpData?.testimonialsEyebrow || 'What Educators Say'}
             </SectionEyebrow>
-
             <h2 className="font-serif font-bold text-[#0A1628] text-3xl sm:text-4xl tracking-[-0.02em]">
-              Trusted by District Leaders
+              {wpData?.testimonialsTitle || 'Trusted by District Leaders'}
             </h2>
-
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-            {(testimonials && testimonials.length > 0
-              ? testimonials
-              : [
-                  {
-                    id: '1',
-                    quote:
-                      'Dr. Miles transformed how our teachers think about reading instruction. Our students actually engage with primary sources now.',
-                    author_name: 'Dr. J. Thompson',
-                    author_role: 'Curriculum Director',
-                    author_district: null,
-                  },
-                  {
-                    id: '2',
-                    quote:
-                      'The distinction between adolescent and disciplinary literacy was a game-changer for our department.',
-                    author_name: 'M. Rivera',
-                    author_role: 'Social Studies Specialist',
-                    author_district: null,
-                  },
-                  {
-                    id: '3',
-                    quote:
-                      'Job-embedded coaching that actually fits our planning schedule. Rare and invaluable.',
-                    author_name: 'S. Johnson',
-                    author_role: 'Instructional Coach',
-                    author_district: null,
-                  },
-                ]
-            ).map((t) => (
-
-              <TestimonialCard
-                key={t.id}
-                quote={t.quote}
-                author_name={t.author_name}
-                author_role={t.author_role}
-                author_district={t.author_district}
-              />
-
+            {(testimonials && testimonials.length > 0 ? testimonials : [
+              { id: '1', quote: 'Dr. Miles transformed how our teachers think about reading instruction. Our students actually engage with primary sources now.', author_name: 'Dr. J. Thompson', author_role: 'Curriculum Director', author_district: null },
+              { id: '2', quote: 'The distinction between adolescent and disciplinary literacy was a game-changer for our department.', author_name: 'M. Rivera', author_role: 'Social Studies Specialist', author_district: null },
+              { id: '3', quote: 'Job-embedded coaching that actually fits our planning schedule. Rare and invaluable.', author_name: 'S. Johnson', author_role: 'Instructional Coach', author_district: null },
+            ]).map((t) => (
+              <TestimonialCard key={t.id} quote={t.quote} author_name={t.author_name} author_role={t.author_role} author_district={t.author_district} />
             ))}
-
           </div>
-
         </div>
       </section>
-
 
       {/* ========================================================= */}
       {/* SECTION 6: FREE GUIDE DOWNLOAD */}
       {/* ========================================================= */}
 
-      <section
-        id="free-guide"
-        className="bg-white py-20 px-6 lg:px-8 border-t border-[#E2E8F0] scroll-mt-20"
-        aria-label="Free guide download"
-      >
+      <section id="free-guide" className="bg-white py-20 px-6 lg:px-8 border-t border-[#E2E8F0] scroll-mt-20" aria-label="Free guide download">
         <div className="max-w-3xl mx-auto">
-
-          {/* Section Introduction */}
           <div className="text-center mb-10">
-
             <SectionEyebrow className="mb-3">
-              Free Resource
+              {wpData?.resourceEyebrow || 'Free Resource'}
             </SectionEyebrow>
-
             <h2 className="font-serif font-bold text-[#0A1628] text-2xl sm:text-3xl lg:text-4xl tracking-[-0.02em] mb-4 text-balance">
-              Stop choosing between the curriculum map and the literacy mandate.
+              {wpData?.resourceTitle || 'Stop choosing between the curriculum map and the literacy mandate.'}
             </h2>
-
             <p className="font-sans text-sm sm:text-base text-[#4A5568] leading-relaxed max-w-2xl mx-auto mb-6">
-              There&rsquo;s a better path. Download the free guide Dr. Miles
-              wrote for secondary instructional leaders who are done making
-              that impossible trade-off.
+              {wpData?.resourceDesc || 'There’s a better path. Download the free guide Dr. Miles wrote for secondary instructional leaders who are done making that impossible trade-off.'}
             </p>
-
-            {/* <p className="font-serif text-lg sm:text-xl font-semibold text-[#0A1628]">
-              The Contextual Shift: 5 Ways to Integrate Literacy Without
-              Losing Content Pacing
-            </p> */}
-
           </div>
-
 
           {/* Kit Form Container */}
           <div className="bg-[#F4F6F9] border border-[#E2E8F0] rounded-sm p-6 sm:p-8 lg:p-10 shadow-sm">
-
-            {/* <div className="text-center mb-6">
-
-              <h3 className="font-serif font-bold text-[#0A1628] text-xl sm:text-2xl mb-2">
-                Get Your Free Guide
-              </h3>
-
-              <p className="font-sans text-sm text-[#4A5568]">
-                Enter your details below to receive The Contextual Shift guide.
-              </p>
-
-            </div> */}
-
-            {/* Kit Embedded Form */}
             <KitForm />
-
           </div>
-
         </div>
       </section>
-
 
       {/* ========================================================= */}
       {/* SECTION 7: FINAL CTA */}
       {/* ========================================================= */}
 
-      <section
-        className="bg-[#0A1628] py-20 px-6 lg:px-8 text-center"
-        aria-label="Final call to action"
-      >
+      <section className="bg-[#0A1628] py-20 px-6 lg:px-8 text-center" aria-label="Final call to action">
         <div className="max-w-2xl mx-auto">
-
           <h2 className="font-serif font-bold text-white text-3xl sm:text-4xl tracking-[-0.02em] mb-4 text-balance">
-            Your Social Studies classrooms can do more than cover content.
+            {wpData?.ctaTitle || 'Your Social Studies classrooms can do more than cover content.'}
           </h2>
-
           <p className="font-sans text-white/75 text-base sm:text-lg mb-8">
-            They can teach students to think like historians. Let&rsquo;s build that together.
+            {wpData?.ctaDesc || 'They can teach students to think like historians. Let’s build that together.'}
           </p>
-
-          <Link
-            href="/contact"
-            className="inline-block bg-[#C9963A] text-white font-sans font-semibold text-sm px-8 py-4 rounded-sm hover:bg-[#F0C97A] hover:text-[#0A1628] transition-colors duration-150"
-          >
-            Learn More &rarr;
+          <Link href="/contact" className="inline-block bg-[#C9963A] text-white font-sans font-semibold text-sm px-8 py-4 rounded-sm hover:bg-[#F0C97A] hover:text-[#0A1628] transition-colors duration-150">
+            {wpData?.ctaBtnText || 'Learn More →'}
           </Link>
-
         </div>
       </section>
-
     </>
   )
 }

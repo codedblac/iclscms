@@ -1,0 +1,61 @@
+[
+  {
+    "key": "group_procurementpagecontent_v2",
+    "title": "procurementpagecontent",
+    "fields": [
+      { "key": "field_proc_tab1", "label": "1. Hero Section", "name": "", "type": "tab" },
+      { "key": "field_proc_heye", "label": "Hero Eyebrow", "name": "proc_hero_eyebrow", "type": "text", "default_value": "Vendor Procurement & Corporate Data" },
+      { "key": "field_proc_htit", "label": "Hero Title", "name": "proc_hero_title", "type": "textarea", "default_value": "A Contract-Ready Partner for School Districts and Educational Agencies." },
+      { "key": "field_proc_hdes", "label": "Hero Description", "name": "proc_hero_desc", "type": "textarea", "default_value": "In Context Learning Solutions, LLC is a fully registered, compliant corporate entity equipped to streamline the procurement process for public school systems, state agencies, and grant-funded educational programs." },
+
+      { "key": "field_proc_tab2", "label": "2. Vendor Information", "name": "", "type": "tab" },
+      { "key": "field_proc_vtit", "label": "Vendor Data Title", "name": "proc_vendor_title", "type": "text", "default_value": "Corporate Identifiers & Registrations" },
+      { "key": "field_proc_vlgl", "label": "Legal Entity Name", "name": "proc_vendor_legal", "type": "text", "default_value": "In Context Learning Solutions, LLC" },
+      { "key": "field_proc_vfoc", "label": "Core Focus", "name": "proc_vendor_focus", "type": "text", "default_value": "K-12 Educational Support Services, Social Studies Curriculum Consultation, Secondary Literacy Integration." },
+      { "key": "field_proc_vnai", "label": "Primary NAICS Code", "name": "proc_vendor_naics", "type": "text", "default_value": "611710 — Educational Support Services" },
+      { "key": "field_proc_vnig", "label": "NIGP Class/Item Codes", "name": "proc_vendor_nigp", "type": "text", "default_value": "Applicable Georgia state procurement codes" },
+      { "key": "field_proc_vcer", "label": "Certifications & Structure", "name": "proc_vendor_certs", "type": "text", "default_value": "State-registered Georgia Limited Liability Company (LLC)" },
+      { "key": "field_proc_vare", "label": "Service Area", "name": "proc_vendor_area", "type": "text", "default_value": "Georgia (primary) · National (virtual & hybrid)" },
+      { "key": "field_proc_vfou", "label": "Founder & Principal", "name": "proc_vendor_founder", "type": "text", "default_value": "Dr. Kimberly Nicole Miles, Ed.D." },
+
+      { "key": "field_proc_tab3", "label": "3. Core Capabilities", "name": "", "type": "tab" },
+      { "key": "field_proc_ceye", "label": "Capabilities Eyebrow", "name": "proc_cap_eyebrow", "type": "text", "default_value": "Service Breakdown" },
+      { "key": "field_proc_ctit", "label": "Capabilities Title", "name": "proc_cap_title", "type": "text", "default_value": "Core Capabilities" },
+      { "key": "field_proc_cdes", "label": "Capabilities Intro Text", "name": "proc_cap_desc", "type": "textarea", "default_value": "Our professional service engagements are structured for seamless integration into existing district improvement grants and institutional budgets." },
+      
+      { "key": "field_proc_c1t", "label": "Capability 1 Title", "name": "proc_cap1_title", "type": "text", "default_value": "Curriculum Realignment" },
+      { "key": "field_proc_c1d", "label": "Capability 1 Description", "name": "proc_cap1_desc", "type": "textarea", "default_value": "Auditing secondary social studies curriculum maps to blend foundational adolescent literacy strategies with advanced historical inquiry frameworks." },
+      { "key": "field_proc_c2t", "label": "Capability 2 Title", "name": "proc_cap2_title", "type": "text", "default_value": "Job-Embedded Coaching" },
+      { "key": "field_proc_c2d", "label": "Capability 2 Description", "name": "proc_cap2_desc", "type": "textarea", "default_value": "Facilitating on-site PLC (Professional Learning Community) workshops that build internal teacher capacity without interrupting instructional pacing." },
+      { "key": "field_proc_c3t", "label": "Capability 3 Title", "name": "proc_cap3_title", "type": "text", "default_value": "Assessment Development" },
+      { "key": "field_proc_c3d", "label": "Capability 3 Description", "name": "proc_cap3_desc", "type": "textarea", "default_value": "Designing rigorous, text-dependent Depth of Knowledge (DOK) level 2 and 3 assessment items that reflect state testing demands and historical thinking skills." },
+      { "key": "field_proc_c4t", "label": "Capability 4 Title", "name": "proc_cap4_title", "type": "text", "default_value": "Disciplinary Literacy Modules" },
+      { "key": "field_proc_c4d", "label": "Capability 4 Description", "name": "proc_cap4_desc", "type": "textarea", "default_value": "Developing targeted primary and secondary source analysis modules that improve student evidence-based writing performance." },
+
+      { "key": "field_proc_tab4", "label": "4. Digital Assets", "name": "", "type": "tab" },
+      { "key": "field_proc_aeye", "label": "Assets Eyebrow", "name": "proc_assets_eyebrow", "type": "text", "default_value": "Procurement Resources" },
+      { "key": "field_proc_atit", "label": "Assets Title", "name": "proc_assets_title", "type": "text", "default_value": "Download Digital Assets" },
+      { "key": "field_proc_ades", "label": "Assets Description", "name": "proc_assets_desc", "type": "textarea", "default_value": "Procurement officers, contract managers, and curriculum directors can instantly download our complete physical asset pack below to accelerate vendor onboarding." },
+
+      { "key": "field_proc_as1tag", "label": "Asset 1 Tag", "name": "proc_asset1_tag", "type": "text", "default_value": "Official Document" },
+      { "key": "field_proc_as1tit", "label": "Asset 1 Title", "name": "proc_asset1_title", "type": "text", "default_value": "Full Capability Statement (PDF)" },
+      { "key": "field_proc_as1des", "label": "Asset 1 Description", "name": "proc_asset1_desc", "type": "textarea", "default_value": "Comprehensive overview of ICLS core competencies, past performance indicators, NAICS alignments, and consulting frameworks designed for RFQ and grant responses." },
+      { "key": "field_proc_as1btn", "label": "Asset 1 Button Text", "name": "proc_asset1_btn", "type": "text", "default_value": "Download Capability Statement (PDF)" },
+      { "key": "field_proc_as1url", "label": "Asset 1 PDF URL", "name": "proc_asset1_url", "type": "url", "default_value": "/ICLS_Capability_Statement_Branded.pdf" },
+
+      { "key": "field_proc_as2tag", "label": "Asset 2 Tag", "name": "proc_asset2_tag", "type": "text", "default_value": "Onboarding Profile" },
+      { "key": "field_proc_as2tit", "label": "Asset 2 Title", "name": "proc_asset2_title", "type": "text", "default_value": "Corporate Vendor Profile" },
+      { "key": "field_proc_as2des", "label": "Asset 2 Description", "name": "proc_asset2_desc", "type": "textarea", "default_value": "Detailed packet including company background, W-9 metadata summary, insurance clearances, and standard educational service agreement parameters." },
+      { "key": "field_proc_as2btn", "label": "Asset 2 Button Text", "name": "proc_asset2_btn", "type": "text", "default_value": "Download Corporate Vendor Profile (PDF)" },
+      { "key": "field_proc_as2url", "label": "Asset 2 PDF URL", "name": "proc_asset2_url", "type": "url", "default_value": "/ICLS_Corporate_Vendor_Profile_Branded.pdf" },
+
+      { "key": "field_proc_tab5", "label": "5. Final CTA", "name": "", "type": "tab" },
+      { "key": "field_proc_ctatit", "label": "CTA Title", "name": "proc_cta_title", "type": "textarea", "default_value": "Ready to Clear ICLS as an Approved Vendor?" },
+      { "key": "field_proc_ctades", "label": "CTA Description", "name": "proc_cta_desc", "type": "textarea", "default_value": "Our onboarding process is straightforward. Contact us with your district’s specific vendor registration requirements or custom contract paperwork." },
+      { "key": "field_proc_ctabtn", "label": "CTA Button Text", "name": "proc_cta_btn", "type": "text", "default_value": "Contact the Procurement Team" }
+    ],
+    "location": [ [ { "param": "page", "operator": "==", "value": "procurement" } ] ],
+    "show_in_graphql": 1,
+    "graphql_field_name": "procurementpagecontent"
+  }
+]

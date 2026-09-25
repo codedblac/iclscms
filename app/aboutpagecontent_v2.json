@@ -1,0 +1,52 @@
+[
+  {
+    "key": "group_aboutpagecontent_v2",
+    "title": "aboutpagecontent",
+    "fields": [
+      { "key": "field_ab_tab1", "label": "1. Hero Section", "name": "", "type": "tab" },
+      { "key": "field_ab_heye", "label": "Hero Eyebrow", "name": "about_hero_eyebrow", "type": "text", "default_value": "The Expertise Behind the Framework" },
+      { "key": "field_ab_htit", "label": "Hero Title", "name": "about_hero_title", "type": "textarea", "default_value": "Rooted in Research. Proven in the Classroom. Empowering Secondary Educators." },
+      
+      { "key": "field_ab_tab2", "label": "2. Legacy (Bio Block 1)", "name": "", "type": "tab" },
+      { "key": "field_ab_limg", "label": "Legacy Image", "name": "about_legacy_image", "type": "image", "return_format": "url" },
+      { "key": "field_ab_ltit", "label": "Legacy Title", "name": "about_legacy_title", "type": "text", "default_value": "Driven by a Legacy of Education" },
+      { "key": "field_ab_lp1", "label": "Legacy Paragraph 1", "name": "about_legacy_p1", "type": "textarea", "default_value": "True instructional leadership isn't born in a vacuum; it is forged through years of real-world classroom experience and a deep respect for the teaching profession. As the daughter of dedicated lifelong educators, my path was set early. I witnessed firsthand the profound impact that a supported, highly skilled teacher can have on a student’s life." },
+      { "key": "field_ab_lp2", "label": "Legacy Paragraph 2", "name": "about_legacy_p2", "type": "textarea", "default_value": "Today, with over 20 years of cross-curricular experience spanning elementary, secondary, and collegiate levels, I carry that legacy forward. I know the unique pressures secondary teachers face—balancing heavy content pacing, evolving state standards, and diverse classroom reading dynamics. My mission through In Context Learning Solutions is to ensure that educators never have to navigate these challenges alone." },
+
+      { "key": "field_ab_tab3", "label": "3. Credentials (Bio Block 2)", "name": "", "type": "tab" },
+      { "key": "field_ab_ctit", "label": "Credentials Title", "name": "about_cred_title", "type": "text", "default_value": "Academic & Professional Credentials" },
+      { "key": "field_ab_cdes", "label": "Credentials Description", "name": "about_cred_desc", "type": "textarea", "default_value": "My approach to school district consulting combines practical, job-embedded classroom application with rigorous, evidence-based research." },
+      { "key": "field_ab_cb1", "label": "Credential 1 (Bold Part)", "name": "about_cred1_bold", "type": "text", "default_value": "Doctorate in Education (Ed.D.)" },
+      { "key": "field_ab_ct1", "label": "Credential 1 (Text Part)", "name": "about_cred1_text", "type": "text", "default_value": " | Academic Focus on Curriculum, Instruction, and Educational Leadership (3.9 GPA)." },
+      { "key": "field_ab_cb2", "label": "Credential 2 (Bold Part)", "name": "about_cred2_bold", "type": "text", "default_value": "Professional Endorsements:" },
+      { "key": "field_ab_ct2", "label": "Credential 2 (Text Part)", "name": "about_cred2_text", "type": "text", "default_value": " Advanced specializations in Instructional Coaching, Gifted Education, and ESOL (English to Speakers of Other Languages)." },
+      { "key": "field_ab_cb3", "label": "Credential 3 (Bold Part)", "name": "about_cred3_bold", "type": "text", "default_value": "Leadership Profiles:" },
+      { "key": "field_ab_ct3", "label": "Credential 3 (Text Part)", "name": "about_cred3_text", "type": "text", "default_value": " Director of regional secondary history tournaments, voting delegate on local Panhellenic educational executive boards, and active leader within Delta Sigma Theta Sorority, Inc." },
+      { "key": "field_ab_cimg", "label": "Credentials Image", "name": "about_cred_image", "type": "image", "return_format": "url" },
+
+      { "key": "field_ab_tab4", "label": "4. Publications", "name": "", "type": "tab" },
+      { "key": "field_ab_peye", "label": "Publications Eyebrow", "name": "about_pub_eyebrow", "type": "text", "default_value": "Published Works" },
+      { "key": "field_ab_ptit", "label": "Publications Title", "name": "about_pub_title", "type": "text", "default_value": "Featured Thought Leadership & Publications" },
+      { "key": "field_ab_pint", "label": "Publications Intro", "name": "about_pub_intro", "type": "textarea", "default_value": "I actively contribute to the regional and national dialogue surrounding secondary literacy and historical inquiry. My published work serves as a foundational blueprint for districts looking to redefine their instructional approaches." },
+      { "key": "field_ab_p1tag", "label": "Pub 1 Tag", "name": "about_pub1_tag", "type": "text", "default_value": "Featured Article" },
+      { "key": "field_ab_p1tit", "label": "Pub 1 Title", "name": "about_pub1_title", "type": "textarea", "default_value": "“Adolescent Literacy: Bridging Literacy Gaps in Georgia’s Social Studies Classrooms — A Call for Disciplinary Literacy in Secondary Education”" },
+      { "key": "field_ab_p1src", "label": "Pub 1 Source", "name": "about_pub1_source", "type": "text", "default_value": "Teaching Social Studies in the Peach State · Vol. 4, Iss. 1" },
+      { "key": "field_ab_p1des", "label": "Pub 1 Description", "name": "about_pub1_desc", "type": "textarea", "default_value": "In this peer-reviewed publication, I break down the critical cognitive distinction between foundational reading support and specialized historical thinking. The article outlines a practical roadmap for district leaders to elevate secondary classroom rigor without falling behind on curriculum maps." },
+      { "key": "field_ab_p1ltxt", "label": "Pub 1 Link Text", "name": "about_pub1_link_text", "type": "text", "default_value": "Access the Full Text via Georgia Southern University Digital Commons" },
+      { "key": "field_ab_p1lurl", "label": "Pub 1 Link URL", "name": "about_pub1_link_url", "type": "url", "default_value": "https://digitalcommons.georgiasouthern.edu/sspeach/vol4/iss1/5/" },
+      { "key": "field_ab_p2tag", "label": "Pub 2 Tag", "name": "about_pub2_tag", "type": "text", "default_value": "National Contribution" },
+      { "key": "field_ab_p2tit", "label": "Pub 2 Title", "name": "about_pub2_title", "type": "textarea", "default_value": "“Building Bridges: Integrating Multicultural Awareness in Early Learning (and Beyond)”" },
+      { "key": "field_ab_p2src", "label": "Pub 2 Source", "name": "about_pub2_source", "type": "text", "default_value": "Published in The Leader" },
+      { "key": "field_ab_p2des", "label": "Pub 2 Description", "name": "about_pub2_desc", "type": "textarea", "default_value": "A national perspective focusing on cross-cultural alignment, disciplinary literacy frameworks, and the seamless integration of diverse viewpoints within social studies instruction." },
+
+      { "key": "field_ab_tab5", "label": "5. The ICLS Promise CTA", "name": "", "type": "tab" },
+      { "key": "field_ab_preye", "label": "Promise Eyebrow", "name": "about_promise_eyebrow", "type": "text", "default_value": "The ICLS Promise" },
+      { "key": "field_ab_prtit", "label": "Promise Title", "name": "about_promise_title", "type": "text", "default_value": "Seen. Heard. Understood." },
+      { "key": "field_ab_prdes", "label": "Promise Description", "name": "about_promise_desc", "type": "textarea", "default_value": "Sustainable instructional growth never happens through top-down mandates or generic professional development. It happens when educators feel deeply seen, heard, and understood in their specific content areas. Every ICLS engagement begins with listening." },
+      { "key": "field_ab_prbtn", "label": "Promise Button Text", "name": "about_promise_btn", "type": "text", "default_value": "Start the Conversation" }
+    ],
+    "location": [ [ { "param": "page", "operator": "==", "value": "about" } ] ],
+    "show_in_graphql": 1,
+    "graphql_field_name": "aboutpagecontent"
+  }
+]

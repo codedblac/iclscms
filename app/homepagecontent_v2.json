@@ -1,0 +1,68 @@
+[
+  {
+    "key": "group_homepagecontent_v2",
+    "title": "homepagecontent",
+    "fields": [
+      { "key": "field_h2_tab1", "label": "1. Hero Section", "name": "", "type": "tab" },
+      { "key": "field_h2_htitle", "label": "Hero Title", "name": "hero_title", "type": "textarea", "default_value": "Your teachers already know the content. Let’s teach them to teach it differently." },
+      { "key": "field_h2_hdesc", "label": "Hero Description", "name": "hero_description", "type": "textarea", "default_value": "Dr. Kimberly Nicole Miles partners with K–12 districts and curriculum leaders to bring disciplinary literacy directly into secondary Social Studies classrooms — without adding to your teachers’ load or losing a single week on the pacing guide." },
+      { "key": "field_h2_hbtn1", "label": "Button 1 Text", "name": "hero_btn1_text", "type": "text", "default_value": "Learn More →" },
+      { "key": "field_h2_hbtn2", "label": "Button 2 Text", "name": "hero_btn2_text", "type": "text", "default_value": "Download The Contextual Shift Guide" },
+      { "key": "field_h2_himg", "label": "Hero Background Image", "name": "hero_image", "type": "image", "return_format": "url" },
+
+      { "key": "field_h2_tab2", "label": "2. The Tension", "name": "", "type": "tab" },
+      { "key": "field_h2_ttitle", "label": "Tension Title", "name": "tension_title", "type": "text", "default_value": "The mandate landed. The pacing guide didn’t move." },
+      { "key": "field_h2_tp1", "label": "Paragraph 1", "name": "tension_p1", "type": "textarea", "default_value": "You’ve been handed a district-wide literacy initiative. Your Social Studies teachers have a curriculum map that waits for no one. And somewhere in the middle, students are being asked to read like historians without ever being taught how." },
+      { "key": "field_h2_tp2", "label": "Paragraph 2 (Bold)", "name": "tension_p2", "type": "text", "default_value": "This is the gap Dr. Miles closes." },
+      { "key": "field_h2_tp3", "label": "Paragraph 3", "name": "tension_p3", "type": "textarea", "default_value": "Not with generic reading strategies stapled onto your existing units. Not with a two-day PD that disappears by Monday. But with job-embedded coaching that meets your teachers where they are — inside their planning time, inside their content, inside their classrooms." },
+
+      { "key": "field_h2_tab3", "label": "3. The Distinction", "name": "", "type": "tab" },
+      { "key": "field_h2_dtitle", "label": "Title", "name": "distinction_title", "type": "text", "default_value": "There’s a difference. Most PD doesn’t know it." },
+      { "key": "field_h2_dhl1", "label": "Highlight Paragraph 1", "name": "distinction_highlight_p1", "type": "textarea", "default_value": "Most literacy professional development teaches adolescent literacy — foundational strategies for accessing complex text." },
+      { "key": "field_h2_dhl2", "label": "Highlight Paragraph 2 (Bold)", "name": "distinction_highlight_p2", "type": "textarea", "default_value": "Dr. Miles teaches disciplinary literacy — the specialized practice of reading, writing, and thinking like a historian." },
+      { "key": "field_h2_dcp1", "label": "Callout Box Paragraph 1", "name": "distinction_callout_p1", "type": "textarea", "default_value": "That distinction changes everything. A student who can identify the main idea of a passage is not the same as a student who can source a primary document, contextualize an era, and corroborate competing accounts." },
+      { "key": "field_h2_dcp2", "label": "Callout Box Paragraph 2", "name": "distinction_callout_p2", "type": "text", "default_value": "The second student is college-ready. The second student is what Social Studies was always meant to produce." },
+      { "key": "field_h2_dcp3", "label": "Callout Box Paragraph 3 (Gold)", "name": "distinction_callout_p3", "type": "text", "default_value": "ICLS exists to get your department there." },
+
+      { "key": "field_h2_tab4", "label": "4. The Approach", "name": "", "type": "tab" },
+      { "key": "field_h2_atitle", "label": "Title", "name": "approach_title", "type": "text", "default_value": "We go where the work actually happens." },
+      { "key": "field_h2_ap1", "label": "Paragraph 1", "name": "approach_p1", "type": "textarea", "default_value": "Every ICLS engagement is built around one principle: real change happens in collaborative planning rooms, not conference centers." },
+      { "key": "field_h2_ap2", "label": "Paragraph 2", "name": "approach_p2", "type": "textarea", "default_value": "Dr. Miles embeds directly into your teachers’ professional learning communities — bringing targeted historical inquiry routines into the spaces where your team already works together. No extra sessions to schedule. No separate literacy block to carve out. The content is the literacy." },
+      { "key": "field_h2_ap3", "label": "Paragraph 3", "name": "approach_p3", "type": "textarea", "default_value": "When teachers feel genuinely supported — not managed, not mandated — they build the confidence to lead students deeper. That’s where student growth becomes measurable." },
+
+      { "key": "field_h2_tab5", "label": "5. Services Snapshot", "name": "", "type": "tab" },
+      { "key": "field_h2_seye", "label": "Eyebrow", "name": "services_eyebrow", "type": "text", "default_value": "What We Offer" },
+      { "key": "field_h2_stitle", "label": "Title", "name": "services_title", "type": "text", "default_value": "Three Tiers. One Mission." },
+      { "key": "field_h2_t1t", "label": "Tier 1 Title", "name": "tier1_title", "type": "text", "default_value": "Foundational PD Workshops" },
+      { "key": "field_h2_t1d", "label": "Tier 1 Description", "name": "tier1_desc", "type": "textarea", "default_value": "High-impact single sessions aligned to your district's current literacy goals and Social Studies curriculum standards." },
+      { "key": "field_h2_t2t", "label": "Tier 2 Title", "name": "tier2_title", "type": "text", "default_value": "Collaborative Coaching Cohorts" },
+      { "key": "field_h2_t2d", "label": "Tier 2 Description", "name": "tier2_desc", "type": "textarea", "default_value": "Job-embedded support delivered during teacher planning periods. Live co-planning that honors curriculum pacing." },
+      { "key": "field_h2_t3t", "label": "Tier 3 Title", "name": "tier3_title", "type": "text", "default_value": "Strategic Partnerships & Rigor Audits" },
+      { "key": "field_h2_t3d", "label": "Tier 3 Description", "name": "tier3_desc", "type": "textarea", "default_value": "District-wide instructional alignment. An instructional audit and multi-year literacy integration roadmap for your department." },
+
+      { "key": "field_h2_tab6", "label": "6. Meet Dr. Miles", "name": "", "type": "tab" },
+      { "key": "field_h2_bimg", "label": "Bio Image", "name": "bio_image", "type": "image", "return_format": "url" },
+      { "key": "field_h2_bname", "label": "Name", "name": "bio_name", "type": "text", "default_value": "Dr. Kimberly Nicole Miles" },
+      { "key": "field_h2_btitle", "label": "Sub-title", "name": "bio_title", "type": "text", "default_value": "Founder & Lead Consultant, Ed.D." },
+      { "key": "field_h2_beye", "label": "Eyebrow", "name": "bio_eyebrow", "type": "text", "default_value": "Meet Dr. Miles" },
+      { "key": "field_h2_bhead", "label": "Heading", "name": "bio_heading", "type": "text", "default_value": "Twenty years in the room. Now she’s in yours." },
+      { "key": "field_h2_bp1", "label": "Paragraph 1", "name": "bio_text1", "type": "textarea", "default_value": "Dr. Kimberly Nicole Miles built ICLS from the inside out — starting in elementary classrooms, moving through secondary and collegiate instruction, and spending two decades watching what happens when literacy is treated as an English teacher’s problem instead of everyone’s responsibility." },
+      { "key": "field_h2_bp2", "label": "Paragraph 2", "name": "bio_text2", "type": "textarea", "default_value": "She holds an Ed.D. with professional endorsements in Instructional Coaching, Gifted Education, ESOL, and Math (K–5). Her peer-reviewed research on adolescent disciplinary literacy in Georgia’s Social Studies classrooms has been recognized as a benchmark regional framework for secondary integration." },
+      { "key": "field_h2_bital", "label": "Italic Text", "name": "bio_italic_text", "type": "text", "default_value": "She doesn’t just study this. She’s lived it." },
+      { "key": "field_h2_blink", "label": "Research Link", "name": "bio_research_link", "type": "url", "default_value": "https://digitalcommons.georgiasouthern.edu/sspeach/vol4/iss1/5/" },
+
+      { "key": "field_h2_tab7", "label": "7. Testimonials, Kit & CTA", "name": "", "type": "tab" },
+      { "key": "field_h2_teye", "label": "Testimonials Eyebrow", "name": "testimonials_eyebrow", "type": "text", "default_value": "What Educators Say" },
+      { "key": "field_h2_ttitl", "label": "Testimonials Title", "name": "testimonials_title", "type": "text", "default_value": "Trusted by District Leaders" },
+      { "key": "field_h2_reye", "label": "Kit Form Eyebrow", "name": "resource_eyebrow", "type": "text", "default_value": "Free Resource" },
+      { "key": "field_h2_rtitl", "label": "Kit Form Title", "name": "resource_title", "type": "textarea", "default_value": "Stop choosing between the curriculum map and the literacy mandate." },
+      { "key": "field_h2_rdesc", "label": "Kit Form Description", "name": "resource_desc", "type": "textarea", "default_value": "There’s a better path. Download the free guide Dr. Miles wrote for secondary instructional leaders who are done making that impossible trade-off." },
+      { "key": "field_h2_ctatit", "label": "Final CTA Title", "name": "cta_title", "type": "textarea", "default_value": "Your Social Studies classrooms can do more than cover content." },
+      { "key": "field_h2_ctadesc", "label": "Final CTA Description", "name": "cta_desc", "type": "text", "default_value": "They can teach students to think like historians. Let’s build that together." },
+      { "key": "field_h2_ctabtn", "label": "Final CTA Button Text", "name": "cta_btn_text", "type": "text", "default_value": "Learn More →" }
+    ],
+    "location": [ [ { "param": "page", "operator": "==", "value": "home" } ] ],
+    "show_in_graphql": 1,
+    "graphql_field_name": "homepagecontent"
+  }
+]

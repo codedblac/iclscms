@@ -1,0 +1,28 @@
+[
+  {
+    "key": "group_contactpagecontent_v2",
+    "title": "contactpagecontent",
+    "fields": [
+      { "key": "field_cnt_tab1", "label": "1. Hero Section", "name": "", "type": "tab" },
+      { "key": "field_cnt_heye", "label": "Hero Eyebrow", "name": "cnt_hero_eyebrow", "type": "text", "default_value": "Let’s Collaborate" },
+      { "key": "field_cnt_htit", "label": "Hero Title", "name": "cnt_hero_title", "type": "textarea", "default_value": "Start Turning Your District’s Literacy Mandates into Classroom Movements." },
+      { "key": "field_cnt_hdes", "label": "Hero Description", "name": "cnt_hero_desc", "type": "textarea", "default_value": "Whether you are a district curriculum director planning your next professional learning day, a principal looking to inject rigor into your social studies department, or a team lead seeking embedded coaching support, let’s connect." },
+
+      { "key": "field_cnt_tab2", "label": "2. Form Area", "name": "", "type": "tab" },
+      { "key": "field_cnt_ftit", "label": "Form Section Title", "name": "cnt_form_title", "type": "text", "default_value": "Send an Inquiry" },
+      { "key": "field_cnt_fdes", "label": "Form Subtext", "name": "cnt_form_desc", "type": "textarea", "default_value": "Have a specific question about our service tiers, standard contract rates, or the availability of custom workshops? Fill out the secure form below, and our team will respond within 24 business hours." },
+
+      { "key": "field_cnt_tab3", "label": "3. Sidebar Details", "name": "", "type": "tab" },
+      { "key": "field_cnt_sbt1", "label": "Sidebar Section Title 1", "name": "cnt_sb_title1", "type": "text", "default_value": "How Can We Help Your Team?" },
+      { "key": "field_cnt_sbnm", "label": "Person Name", "name": "cnt_sb_name", "type": "text", "default_value": "Dr. Kimberly Miles" },
+      { "key": "field_cnt_sbrl", "label": "Person Roles (Comma Separated)", "name": "cnt_sb_roles", "type": "textarea", "default_value": "Professional Learning Specialist, Curriculum Specialist, Editor" },
+      { "key": "field_cnt_sbt2", "label": "Sidebar Section Title 2", "name": "cnt_sb_title2", "type": "text", "default_value": "Direct Contact Channels" },
+      { "key": "field_cnt_sbem", "label": "Direct Email", "name": "cnt_sb_email", "type": "text", "default_value": "info@incontextlearningsolutions.com" },
+      { "key": "field_cnt_sblu", "label": "LinkedIn Profile URL", "name": "cnt_sb_linkedin_url", "type": "url", "default_value": "https://www.linkedin.com/in/kmilesbsedmed" },
+      { "key": "field_cnt_sblt", "label": "LinkedIn Label", "name": "cnt_sb_linkedin_label", "type": "text", "default_value": "Connect on LinkedIn" }
+    ],
+    "location": [ [ { "param": "page", "operator": "==", "value": "contact" } ] ],
+    "show_in_graphql": 1,
+    "graphql_field_name": "contactpagecontent"
+  }
+]
