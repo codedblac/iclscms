@@ -200,71 +200,89 @@ export default async function ProcurementPage() {
       </section>
 
       {/* DOWNLOAD DIGITAL ASSETS */}
-      <section className="bg-[#F4F6F9] py-24 px-6 lg:px-8 border-t border-[#E2E8F0]" aria-label="Digital assets and downloads">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <SectionEyebrow className="mb-3">{wpData?.procAssetsEyebrow || 'Procurement Resources'}</SectionEyebrow>
-            <h2 className="font-serif font-bold text-[#0A1628] text-3xl sm:text-4xl tracking-[-0.02em] mb-4">
-              {wpData?.procAssetsTitle || 'Download Digital Assets'}
-            </h2>
-            <p className="font-sans text-base text-[#4A5568] leading-relaxed">
-              {wpData?.procAssetsDesc || 'Procurement officers, contract managers, and curriculum directors can instantly download our complete physical asset pack below to accelerate vendor onboarding.'}
-            </p>
-          </div>
+              
+        <section
+          className="bg-[#F4F6F9] py-24 px-6 lg:px-8 border-t border-[#E2E8F0]"
+          aria-label="Digital assets and downloads"
+        >
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <SectionEyebrow className="mb-3">
+                {wpData?.procAssetsEyebrow || 'Procurement Resources'}
+              </SectionEyebrow>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Capability Statement Card */}
-            <div className="bg-white border-2 border-[#C9963A] rounded-sm p-8 flex flex-col justify-between shadow-sm">
-              <div>
-                <span className="font-sans text-[10px] font-semibold tracking-[0.15em] uppercase text-[#C9963A] mb-3 block">
-                  {wpData?.procAsset1Tag || 'Official Document'}
-                </span>
-                <h3 className="font-serif font-bold text-[#0A1628] text-xl tracking-[-0.02em] mb-3">
-                  {wpData?.procAsset1Title || 'Full Capability Statement (PDF)'}
-                </h3>
-                <p className="font-sans text-sm text-[#4A5568] leading-relaxed mb-6">
-                  {wpData?.procAsset1Desc || 'Comprehensive overview of ICLS core competencies, past performance indicators, NAICS alignments, and consulting frameworks designed for RFQ and grant responses.'}
-                </p>
-              </div>
-              <a
-                href={wpData?.procAsset1Url || '/ICLS_Capability_Statement_Branded.pdf'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 justify-center bg-[#C9963A] text-white font-sans font-semibold text-sm px-5 py-3.5 rounded-sm hover:bg-[#0A1628] transition-colors duration-150"
-                aria-label="Open Full Capability Statement PDF in a new tab"
-              >
-                <Download size={16} aria-hidden="true" />
-                {wpData?.procAsset1Btn || 'Download Capability Statement (PDF)'}
-              </a>
+              <h2 className="font-serif font-bold text-[#0A1628] text-3xl sm:text-4xl tracking-[-0.02em] mb-4">
+                {wpData?.procAssetsTitle || 'Download Digital Assets'}
+              </h2>
+
+              <p className="font-sans text-base text-[#4A5568] leading-relaxed">
+                {wpData?.procAssetsDesc ||
+                  'Procurement officers, contract managers, and curriculum directors can download our corporate capability statement and vendor profile to support vendor onboarding.'}
+              </p>
             </div>
 
-            {/* Corporate Vendor Profile Card */}
-            <div className="bg-white border border-[#E2E8F0] rounded-sm p-8 flex flex-col justify-between shadow-sm">
-              <div>
-                <span className="font-sans text-[10px] font-semibold tracking-[0.15em] uppercase text-[#C9963A] mb-3 block">
-                  {wpData?.procAsset2Tag || 'Onboarding Profile'}
-                </span>
-                <h3 className="font-serif font-bold text-[#0A1628] text-xl tracking-[-0.02em] mb-3">
-                  {wpData?.procAsset2Title || 'Corporate Vendor Profile'}
-                </h3>
-                <p className="font-sans text-sm text-[#4A5568] leading-relaxed mb-6">
-                  {wpData?.procAsset2Desc || 'Detailed packet including company background, W-9 metadata summary, insurance clearances, and standard educational service agreement parameters.'}
-                </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Capability Statement Card */}
+              <div className="bg-white border-2 border-[#C9963A] rounded-sm p-8 flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="font-sans text-[10px] font-semibold tracking-[0.15em] uppercase text-[#C9963A] mb-3 block">
+                    {wpData?.procAsset1Tag || 'Official Document'}
+                  </span>
+
+                  <h3 className="font-serif font-bold text-[#0A1628] text-xl tracking-[-0.02em] mb-3">
+                    {wpData?.procAsset1Title || 'Capability Statement (PDF)'}
+                  </h3>
+
+                  <p className="font-sans text-sm text-[#4A5568] leading-relaxed mb-6">
+                    {wpData?.procAsset1Desc ||
+                      'An overview of ICLS core competencies, educational consulting services, differentiators, and past performance.'}
+                  </p>
+                </div>
+
+                <a
+                  href="/Capability_Statement.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 justify-center bg-[#C9963A] text-white font-sans font-semibold text-sm px-5 py-3.5 rounded-sm hover:bg-[#0A1628] transition-colors duration-150"
+                  aria-label="Open Capability Statement PDF in a new tab"
+                >
+                  <Download size={16} aria-hidden="true" />
+                  {wpData?.procAsset1Btn || 'Download Capability Statement (PDF)'}
+                </a>
               </div>
-              <a
-                href={wpData?.procAsset2Url || '/ICLS_Corporate_Vendor_Profile_Branded.pdf'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 justify-center bg-[#0A1628] text-white font-sans font-semibold text-sm px-5 py-3.5 rounded-sm hover:bg-[#C9963A] transition-colors duration-150"
-                aria-label="Open Corporate Vendor Profile PDF in a new tab"
-              >
-                <FileText size={16} aria-hidden="true" />
-                {wpData?.procAsset2Btn || 'Download Corporate Vendor Profile (PDF)'}
-              </a>
+
+              {/* Corporate Vendor Profile Card */}
+              <div className="bg-white border border-[#E2E8F0] rounded-sm p-8 flex flex-col justify-between shadow-sm">
+                <div>
+                  <span className="font-sans text-[10px] font-semibold tracking-[0.15em] uppercase text-[#C9963A] mb-3 block">
+                    {wpData?.procAsset2Tag || 'Corporate Profile'}
+                  </span>
+
+                  <h3 className="font-serif font-bold text-[#0A1628] text-xl tracking-[-0.02em] mb-3">
+                    {wpData?.procAsset2Title || 'Corporate Vendor Profile (PDF)'}
+                  </h3>
+
+                  <p className="font-sans text-sm text-[#4A5568] leading-relaxed mb-6">
+                    {wpData?.procAsset2Desc ||
+                      'Company background, corporate identifiers, service delivery capabilities, and contact information for procurement and partnership inquiries.'}
+                  </p>
+                </div>
+
+                <a
+                  href="/Corporate_Vendor_Profile.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 justify-center bg-[#0A1628] text-white font-sans font-semibold text-sm px-5 py-3.5 rounded-sm hover:bg-[#C9963A] transition-colors duration-150"
+                  aria-label="Open Corporate Vendor Profile PDF in a new tab"
+                >
+                  <FileText size={16} aria-hidden="true" />
+                  {wpData?.procAsset2Btn || 'Download Corporate Vendor Profile (PDF)'}
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
 
       {/* CONTACT CTA */}
       <section className="bg-white py-24 px-6 lg:px-8 text-center" aria-label="Procurement contact CTA">
