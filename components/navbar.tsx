@@ -89,7 +89,7 @@ export function Navbar() {
           >
             {/* Light logo — visible before scrolling */}
             <Image
-              src="/wkim.png"
+              src="/kimlt.png"
               alt=""
               fill
               priority
@@ -102,7 +102,7 @@ export function Navbar() {
 
             {/* Dark logo — visible after scrolling */}
             <Image
-              src="/bkim.png"
+              src="/kimdk.png"
               alt=""
               fill
               priority
