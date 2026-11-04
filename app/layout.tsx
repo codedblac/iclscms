@@ -1,9 +1,9 @@
+
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Montserrat } from 'next/font/google'
 import './globals.css'
-import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
+import { SiteShell } from '@/components/site-shell'
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -89,6 +89,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
+
       <body className="font-sans antialiased">
         <a
           href="#main-content"
@@ -96,9 +97,9 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        <Navbar />
-        <main id="main-content">{children}</main>
-        <Footer />
+
+        <SiteShell>{children}</SiteShell>
+
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

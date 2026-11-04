@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'About Dr. Kimberly Miles | In Context Learning Solutions',
   description:
     'Learn about Dr. Kimberly Nicole Miles, Ed.D. — founder of ICLS with 20+ years of experience in secondary education, disciplinary literacy, and Social Studies instructional consulting.',
-  alternates: { canonical: 'https://incontextls.com/about' },
+  alternates: { canonical: 'https://incontextlearningsolutions.com/about' },
 }
 
 function getImgUrl(val: any, fallback: string): string {
