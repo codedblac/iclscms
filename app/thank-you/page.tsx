@@ -54,17 +54,17 @@ export default function ThankYouPage() {
         <section className="bg-[#1A2744] px-6 pb-36 pt-16 text-center text-white md:pb-44 md:pt-24">
           <div className="mx-auto max-w-3xl">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-[#D6A34D] md:text-sm">
-              You're in — let's get you set up
+              THANK YOU FOR DOWNLOADING
             </p>
 
             <h1 className="font-serif text-4xl font-bold leading-tight tracking-tight md:text-6xl">
               Your guide is on its way.
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/80 md:text-lg">
+            {/* <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/80 md:text-lg">
               One last step — check your inbox to access{' '}
               <em>The Contextual Shift</em>.
-            </p>
+            </p> */}
           </div>
         </section>
 
@@ -112,7 +112,7 @@ export default function ThankYouPage() {
               <p>
                 Don't see it? Check your promotions or spam folder — then add{' '}
                 <strong className="font-bold text-[#1A2744]">
-                  info@incontextls.com
+                  info@incontextlearningsolutions.com
                 </strong>{' '}
                 to your contacts so you never miss an update.
               </p>
@@ -127,9 +127,9 @@ export default function ThankYouPage() {
                 Download the Guide Now
               </a>
 
-              <p className="mt-5 text-sm leading-6 text-[#777F8C]">
+              {/* <p className="mt-5 text-sm leading-6 text-[#777F8C]">
                 Or open the email we just sent you — it's there too.
-              </p>
+              </p> */}
             </div>
           </div>
         </section>
@@ -187,7 +187,7 @@ export default function ThankYouPage() {
 
             <p className="mx-auto mb-10 mt-6 max-w-2xl text-sm leading-8 text-white/75 md:text-base">
               In 20 minutes, we can identify your highest-leverage
-              opportunities to strengthen instructional rigor — without
+              opportunities to strengthen instructional rigor without
               disrupting your pacing.
             </p>
 
