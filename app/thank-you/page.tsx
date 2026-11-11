@@ -120,17 +120,14 @@ export default function ThankYouPage() {
 
             {/* Download button */}
             <div className="mt-9">
-              <a
-                href="mailto:info@incontextls.com?subject=The%20Contextual%20Shift%20Guide"
-                className="inline-flex min-h-14 w-full items-center justify-center rounded-md bg-[#C9933A] px-8 py-4 text-sm font-bold tracking-wide text-[#1A2744] shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[#D9A94F] hover:shadow-md sm:w-auto"
-              >
-                Download the Guide Now
-              </a>
-
-              {/* <p className="mt-5 text-sm leading-6 text-[#777F8C]">
-                Or open the email we just sent you — it's there too.
-              </p> */}
-            </div>
+            <a
+              href="/The_Contextual_Shift_Guide.pdf"
+              download="The_Contextual_Shift_Guide.pdf"
+              className="inline-flex min-h-14 w-full items-center justify-center rounded-md bg-[#C9933A] px-8 py-4 text-sm font-bold tracking-wide text-[#1A2744] shadow-sm transition duration-300 hover:-translate-y-0.5 hover:bg-[#D9A94F] hover:shadow-md sm:w-auto"
+            >
+              Download the Guide Now
+            </a>
+          </div>
           </div>
         </section>
 
