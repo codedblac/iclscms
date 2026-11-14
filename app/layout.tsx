@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: 'In Context Learning Solutions | Social Studies Consulting',
     description:
       'Specialized Social Studies instructional consulting and disciplinary literacy professional development for K-12 school districts.',
-    url: 'https://incontextls.com',
+    url: 'https://incontextlearningsolutions.com',
     siteName: 'In Context Learning Solutions',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
     type: 'website',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
       'Disciplinary literacy professional development for K-12 Social Studies educators.',
     creator: '@drmilesk31',
   },
-  alternates: { canonical: 'https://incontextls.com' },
+  alternates: { canonical: 'https://incontextlearningsolutions.com' },
 }
 
 export const viewport: Viewport = {
@@ -63,7 +63,7 @@ const jsonLd = {
   founder: { '@type': 'Person', name: 'Dr. Kimberly Nicole Miles' },
   description:
     'Specialized Social Studies instructional consulting and disciplinary literacy professional development for K-12 school districts.',
-  url: 'https://incontextls.com',
+  url: 'https://incontextlearningsolutions.com',
   areaServed: 'US',
   serviceType: 'Educational Consulting',
   sameAs: [
