@@ -9,7 +9,6 @@ import {
   ChevronDown,
   ChevronUp,
   Mail,
-  Play,
 } from 'lucide-react'
 import { SectionEyebrow } from '@/components/section-eyebrow'
 
@@ -202,36 +201,15 @@ export default function MediaPage() {
 
             {/* Right Column: Video Embed Container */}
             <div className="lg:col-span-6">
-              <div
-                className="relative min-h-[340px] sm:min-h-[380px] rounded-sm overflow-hidden bg-gradient-to-br from-[#172B49] to-[#071222] shadow-lg flex flex-col items-center justify-center p-8 text-center"
-                aria-label="Video placeholder for the 2026 GCSS Social Studies Leadership Award acceptance remarks"
-              >
-                {/* Geometric rings */}
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute w-72 h-72 rounded-full border border-[#F0C97A]/20"
+              <div className="relative aspect-video w-full rounded-sm overflow-hidden border border-[#E2E8F0] bg-[#0A1628] shadow-lg">
+                <iframe
+                  className="absolute inset-0 h-full w-full"
+                  src="https://www.youtube.com/embed/ZUVV0RTMSHI"
+                  title="2026 GCSS Social Studies Leadership Award: Acceptance Remarks — Dr. Kimberly Miles"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
                 />
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute w-52 h-52 rounded-full border border-[#F0C97A]/20"
-                />
-
-                <div className="relative z-10 w-16 h-16 rounded-full border border-[#F0C97A] bg-[#0A1628]/70 flex items-center justify-center text-[#F0C97A] mb-4">
-                  <Play size={22} className="ml-0.5 fill-current" aria-hidden="true" />
-                </div>
-
-                <span className="relative z-10 px-3 py-1 bg-[#C9963A]/20 border border-[#F0C97A]/30 text-[#F0C97A] font-sans text-[10px] font-semibold tracking-[0.14em] uppercase rounded-sm">
-                  Video Recording Coming Soon
-                </span>
-
-                <div className="absolute bottom-6 left-6 right-6 text-left z-10">
-                  <p className="font-serif text-white text-xl font-medium">
-                    Acceptance Remarks
-                  </p>
-                  <p className="font-sans text-[10px] tracking-[0.13em] uppercase text-white/70 mt-1">
-                    2026 GCSS Social Studies Leadership Award
-                  </p>
-                </div>
               </div>
             </div>
           </div>
